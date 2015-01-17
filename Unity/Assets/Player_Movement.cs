@@ -93,7 +93,7 @@ namespace SpaceJam
 			}
 		}
 
-		void OnCollisionTrigger2D(Collision2D coll) {
+		void OnTriggerEnter2D(Collider2D coll) {
 			if (coll.gameObject.tag == "Interactable") {
 				talkIndicator.renderer.enabled = true;
 				canInteract = true;
@@ -101,7 +101,7 @@ namespace SpaceJam
 			}
 		}
 
-		void OnCollisionExit2D(Collision2D coll) {
+		void OnTriggerExit2D(Collider2D coll) {
 			if (coll.gameObject.tag == "Interactable") {
 				talkIndicator.renderer.enabled = false;
 				canInteract = false;
