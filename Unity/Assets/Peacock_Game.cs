@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Peacock_Game : MonoBehaviour {
 
 	public float decrease_time = 0.25f;
 	public float Time_of_Game = 5f;
+	Text buttonText;
 	private float game_time = 0;
 	private float switch_time = 0;
 	private float d_time = 0;
@@ -14,10 +16,13 @@ public class Peacock_Game : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		button = Mathf.FloorToInt(Random.Range (1, 4.99F));
+		buttonText = GameObject.Find("/Canvas/ButtonText").GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		// Example of how to change GUI text
+		buttonText.text = "Press A";
 		if (game_time < Time_of_Game) {
 			if (game_time < switch_time) {
 			} else {
