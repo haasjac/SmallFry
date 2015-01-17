@@ -37,7 +37,7 @@ public class Peacock_Game : MonoBehaviour {
 		else 
 			bar.value = 1f;
 		scoreText.text = "Time: " + Mathf.CeilToInt(Time_of_Game - game_time) + "\r\n Score: " + mash;
-		if (Input.GetButtonDown ("Submit") && start == false) {
+		if (Input.GetButtonDown ("Interact") && start == false) {
 			start = true;
 		}
 
