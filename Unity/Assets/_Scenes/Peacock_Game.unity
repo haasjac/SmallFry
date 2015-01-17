@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   decrease_time: .5
-  Time_of_Game: 15
+  Time_of_Game: 30
 --- !u!4 &245582077
 Transform:
   m_ObjectHideFlags: 0
