@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
-using spaceJam{
+
+namespace SpaceJam {
 public class OstrichMG_player : MonoBehaviour {
 	public float speed;
 	public float jumpForce;
 	private bool grounded;
 	private bool jump;
 	public float Accelerate;
-	public static playersPOS;
+	public static Vector3 playersPOS;
 	//private Transform groundCheck;
 	
 	// Use this for initialization
