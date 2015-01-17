@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7c0472aed62cf7f4ca90060fe14ba0e3
+guid: 4b0d02046a77a314996ca2b65e925974
 TextureImporter:
   fileIDToRecycleName:
     21300000: Peacock_Right_0
@@ -7,7 +7,6 @@ TextureImporter:
     21300004: Peacock_Right_2
     21300006: Peacock_Right_3
     21300008: Peacock_Right_4
-    21300010: Peacock_Right_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -93,16 +92,6 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3840
-        y: 0
-        width: 960
-        height: 960
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Peacock_Right_5
-      rect:
-        serializedVersion: 2
-        x: 4800
         y: 0
         width: 960
         height: 960
