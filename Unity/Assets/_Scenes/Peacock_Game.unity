@@ -253,7 +253,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492bef89f09ace046b83245b9b446acb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decrease_time: .25
+  decrease_time: .5
+  Time_of_Game: 30
 --- !u!4 &245582077
 Transform:
   m_ObjectHideFlags: 0
@@ -297,8 +298,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -322, y: 150}
-  m_SizeDelta: {x: 220.380005, y: 72.1999969}
+  m_AnchoredPosition: {x: -156.800003, y: 124.839996}
+  m_SizeDelta: {x: 517.400024, y: 300}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &673311966
 MonoBehaviour:
