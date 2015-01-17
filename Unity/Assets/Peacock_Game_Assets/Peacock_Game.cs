@@ -22,7 +22,7 @@ public class Peacock_Game : MonoBehaviour {
 	void Start () {
 		button = Mathf.FloorToInt(Random.Range (1, 4.99F));
 		buttonText = GameObject.Find("/Canvas/ButtonText").GetComponent<Text>();
-		buttonText.text = "Press Start";
+		buttonText.text = "Press Interact";
 		buttonText.color = Color.black;
 		scoreText = GameObject.Find("/Canvas/ScoreText").GetComponent<Text>();
 		scoreText.text = "";
@@ -57,15 +57,25 @@ public class Peacock_Game : MonoBehaviour {
 				button = Mathf.FloorToInt(Random.Range (1, 4.99F));
 			}
 			//print (button);
-			if (Input.GetButtonDown ("Fire" + button)) {
-				mash += 2;
+			if (Input.GetButtonDown ("A_button") && button == 1) {
+				mash ++;
+			} else if (Input.GetButtonDown ("A_button")) {
+				mash --;
 			}
-			if (Input.GetButtonDown ("Fire1") || Input.GetButtonDown ("Fire2") || 
-			    Input.GetButtonDown ("Fire3") || Input.GetButtonDown ("Fire4")) {
-				if (mash > 0)
-					mash --;
-				else 
-					mash = 0;
+			if (Input.GetButtonDown ("B_button") && button == 2) {
+				mash ++;
+			} else if (Input.GetButtonDown ("B_button")) {
+				mash --;
+			}
+			if (Input.GetButtonDown ("X_button") && button == 3) {
+				mash ++;
+			} else if (Input.GetButtonDown ("X_button")) {
+				mash --;
+			}
+			if (Input.GetButtonDown ("Y_button") && button == 4) {
+				mash ++;
+			} else if (Input.GetButtonDown ("Y_button")) {
+				mash --;
 			}
 			game_time += Time.deltaTime;
 
@@ -96,16 +106,7 @@ public class Peacock_Game : MonoBehaviour {
 				buttonText.color = Color.green;
 			else 
 				buttonText.color = Color.black;
-			/*if (button == 3)
-				buttonText.color = Color.yellow;
-			else if (button == 2)
-				buttonText.color = Color.blue;
-			else if (button == 1)
-				buttonText.color = Color.red;
-			else if (button == 0)
-				buttonText.color = Color.green;
-			else 
-				buttonText.color = Color.black;*/
+
 		} else if (go) {
 			buttonText.color = Color.black;
 			if (mash > 100)
