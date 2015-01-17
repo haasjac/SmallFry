@@ -11,13 +11,13 @@ namespace SpaceJam
 
 		private bool grounded;
 		private bool jump;
+		private Animator animator;
 		DialogueBehavior dialogueEngine;
 		//private Transform groundCheck;
 
 		// Use this for initialization
 		void Start () {
-			//groundCheck = transform.Find ("groundCheck");
-
+			animator = this.GetComponent<Animator>();
 			dialogueEngine = GameObject.Find ("DialoguePanel").GetComponent<DialogueBehavior> ();
 		}
 		
@@ -35,11 +35,25 @@ namespace SpaceJam
 						grounded = false;
 				}
 
-				// Movement
-				if (Input.GetAxis ("Horizontal") != 0) {
+				// Crouching
+				if (Input.GetButton ("Fire2") && grounded) {
+					animator.SetInteger ("Fish_anim", 2);
+				// Walking
+				} else if (Input.GetAxis ("Horizontal") != 0) {
+					animator.SetInteger ("Fish_anim", 1);
 					Vector3 pos = transform.position;
 					pos.x += speed * Input.GetAxis ("Horizontal");
 					transform.position = pos;
+				// Idle
+				} else {
+					animator.SetInteger ("Fish_anim", 0);
+				}
+
+				// Facing
+				if (Input.GetAxis ("Horizontal") > 0) {
+					animator.SetInteger ("Direction", 1);
+				} else {
+					animator.SetInteger ("Direction", 0);
 				}
 
 				// Interaction mechanics
@@ -74,7 +88,7 @@ namespace SpaceJam
 				}
 			}
 
-			if(jump) {
+			if (jump) {
 				// Add a vertical force to the player.
 				rigidbody2D.AddForce(new Vector2(0f, jumpForce));
 				

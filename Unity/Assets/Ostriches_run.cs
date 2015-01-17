@@ -28,7 +28,7 @@ public class Ostriches_run : MonoBehaviour {
 					// GET REKT!!
 					// ANIMATION: Running --> Hiding
 					Vector3 pos = transform.position;
-					pos.x -= 20;
+					//pos.x -= 20;
 					transform.position = pos;
 					is_waiting = true;
 			}
@@ -39,7 +39,7 @@ public class Ostriches_run : MonoBehaviour {
 					transform.position = pos;
 			} 
 
-			else if (OstrichMG_player.playersPOS - transform.position.x < 5) {
+			else if (OstrichMG_player.playersPOS - transform.position.x < 5 ) {
 					Vector3 pos = transform.position;
 					pos.x += UnityEngine.Random.Range (0, 3) * speed;
 					transform.position = pos;	
