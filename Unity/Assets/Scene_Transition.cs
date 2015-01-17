@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SceneFadeInOut : MonoBehaviour
+public class Scene_Transition : MonoBehaviour
 {
 	public float fadeSpeed = 1.5f;          // Speed that the screen fades to and from black.
-
+	
 	public string lvl_name = "";
 	
 	private bool sceneStarting = true;      // Whether or not the scene is still fading in.
@@ -13,7 +13,7 @@ public class SceneFadeInOut : MonoBehaviour
 	void Awake ()
 	{
 		// Set the texture so that it is the the size of the screen and covers it.
-		guiTexture.pixelInset = new Rect(0f, 0f, Screen.width, Screen.height);
+		//guiTexture.pixelInset = new Rect(0f, 0f, Screen.width, Screen.height);
 	}
 	
 	
@@ -24,8 +24,8 @@ public class SceneFadeInOut : MonoBehaviour
 			// ... call the StartScene function.
 			StartScene();
 	}
-
-
+	
+	
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.gameObject.tag == "Player") {
 			EndScene();
@@ -36,14 +36,14 @@ public class SceneFadeInOut : MonoBehaviour
 	void FadeToClear ()
 	{
 		// Lerp the colour of the texture between itself and transparent.
-		guiTexture.color = Color.Lerp(guiTexture.color, Color.clear, fadeSpeed * Time.deltaTime);
+		//guiTexture.color = Color.Lerp(guiTexture.color, Color.clear, fadeSpeed * Time.deltaTime);
 	}
 	
 	
 	void FadeToBlack ()
 	{
 		// Lerp the colour of the texture between itself and black.
-		guiTexture.color = Color.Lerp(guiTexture.color, Color.black, fadeSpeed * Time.deltaTime);
+		//guiTexture.color = Color.Lerp(guiTexture.color, Color.black, fadeSpeed * Time.deltaTime);
 	}
 	
 	
@@ -53,11 +53,11 @@ public class SceneFadeInOut : MonoBehaviour
 		FadeToClear();
 		
 		// If the texture is almost clear...
-		if(guiTexture.color.a <= 0.05f)
+		//if(guiTexture.color.a <= 0.05f)
 		{
 			// ... set the colour to clear and disable the GUITexture.
-			guiTexture.color = Color.clear;
-			guiTexture.enabled = false;
+			//guiTexture.color = Color.clear;
+			//guiTexture.enabled = false;
 			
 			// The scene is no longer starting.
 			sceneStarting = false;
@@ -68,14 +68,15 @@ public class SceneFadeInOut : MonoBehaviour
 	void EndScene ()
 	{
 		// Make sure the texture is enabled.
-		guiTexture.enabled = true;
+		//guiTexture.enabled = true;
 		
 		// Start fading towards black.
 		FadeToBlack();
 		
 		// If the screen is almost black...
-		if(guiTexture.color.a >= 0.95f)
+		//if(guiTexture.color.a >= 0.95f)
 			// ... reload the level.
 			Application.LoadLevel(lvl_name);
 	}
 }
+
