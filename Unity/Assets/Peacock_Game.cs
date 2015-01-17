@@ -43,16 +43,11 @@ public class Peacock_Game : MonoBehaviour {
 			if (game_time < switch_time) {
 			} else {
 				switch_time += Random.Range(2, 4);
-				//print ("switch" + game_time);
 				button = Mathf.FloorToInt(Random.Range (1, 4.99F));
-				//print (button + " " + game_time);
 			}
 			//print (button);
 			if (Input.GetButtonDown ("Fire" + button)) {
-				if (mash < 23)
-					mash += 3;
-				else 
-					mash = 25;
+				mash += 2;
 			}
 			if (Input.GetButtonDown ("Fire1") || Input.GetButtonDown ("Fire2") || 
 			    Input.GetButtonDown ("Fire3") || Input.GetButtonDown ("Fire4")) {
@@ -66,7 +61,7 @@ public class Peacock_Game : MonoBehaviour {
 			if (d_time > decrease_time) {
 				d_time = 0;
 				if (mash > 0)
-					mash -= 2;
+					mash -= 1;
 				else 
 					mash = 0;
 			}
@@ -80,13 +75,17 @@ public class Peacock_Game : MonoBehaviour {
 			} else if (button == 4) {
 				buttonText.text = "Press Y \r\n" + Mathf.CeilToInt(Time_of_Game - game_time) + "\r\n" + mash;
 			}
-			if (mash > 20)
+			if (mash > 100)
+				buttonText.color = Color.yellow;
+			else if (mash > 75)
+				buttonText.color = Color.blue;
+			else if (mash > 50)
+				buttonText.color = Color.red;
+			else if (mash > 25)
 				buttonText.color = Color.green;
 			else 
-				buttonText.color = Color.red;
+				buttonText.color = Color.black;
 		} else if (go) {
-			//go = false;
-			//print ("done " + mash);
 			if (mash > 12)
 				buttonText.text = "Yippie kay ay motherfucker";
 			else 
