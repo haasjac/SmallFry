@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
-//using spaceJam{
-	public class OstrichMG_player : MonoBehaviour {
+
+namespace SpaceJam
+{
+	public class OstrichMG_player : MonoBehaviour
+	{
 		public float speed;
 		public float jumpForce;
 		private bool grounded;
@@ -10,7 +13,7 @@ using System.Collections;
 		public static float playersPOS;
 		public static bool player_is_safe;
 		//private Transform groundCheck;
-		
+			
 		// Use this for initialization
 		void Start () {
 			//groundCheck = transform.Find ("groundCheck");
@@ -26,7 +29,7 @@ using System.Collections;
 						//ANIMATION running -> Hiding
 				} 
 		else player_is_safe = false;
-
+	
 		if (OstrichMG_controller.crouch_time && !player_is_safe) {
 			// GET REKT!!
 			Vector3 pos = transform.position;
@@ -35,8 +38,8 @@ using System.Collections;
 			transform.position = pos;
 		}
 		player_is_safe = false;
-
-
+	
+	
 		if (Input.GetAxis ("Horizontal") != 0) {
 			if (Input.GetAxis ("Horizontal") > 0)
 			{
@@ -48,10 +51,10 @@ using System.Collections;
 			}
 		else Accelerate = 0;
 		
-
+	
 				
 				
 			}
 		}
 	}
-//}
+}
