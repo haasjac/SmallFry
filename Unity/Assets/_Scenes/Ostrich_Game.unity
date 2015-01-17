@@ -567,6 +567,7 @@ GameObject:
   - 212: {fileID: 1069954588}
   - 50: {fileID: 1069954587}
   - 60: {fileID: 1069954586}
+  - 114: {fileID: 1069954590}
   m_Layer: 9
   m_Name: Ostrich 1
   m_TagString: AI
@@ -638,6 +639,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!114 &1069954590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1069954585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcf93378b14f52440a4d1251d784fc35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: .300000012
 --- !u!1 &1123895263
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,6 +756,7 @@ GameObject:
   - 212: {fileID: 1646648376}
   - 50: {fileID: 1646648375}
   - 60: {fileID: 1646648374}
+  - 114: {fileID: 1646648378}
   m_Layer: 9
   m_Name: Ostrich 2
   m_TagString: AI
@@ -814,6 +828,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!114 &1646648378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1646648373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcf93378b14f52440a4d1251d784fc35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: .5
 --- !u!1 &1731672235
 GameObject:
   m_ObjectHideFlags: 0
