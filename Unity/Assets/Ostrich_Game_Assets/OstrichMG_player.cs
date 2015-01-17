@@ -40,7 +40,7 @@ namespace SpaceJam
 		player_is_safe = false;
 	
 	
-		if (Input.GetAxis ("Horizontal") != 0) {
+		/*if (Input.GetAxis ("Horizontal") != 0) {
 			if (Input.GetAxis ("Horizontal") > 0)
 			{
 				Accelerate+= 0.01f;
@@ -50,11 +50,11 @@ namespace SpaceJam
 				transform.position = pos;
 			}
 		else Accelerate = 0;
-		
+		*/
 	
 				
 				
-			}
+			//}
 		}
 	}
 }
