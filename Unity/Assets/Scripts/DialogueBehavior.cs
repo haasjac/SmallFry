@@ -4,11 +4,6 @@ using System.Collections;
 
 namespace SpaceJam
 {
-
-	// TODO:
-	//	- Change icon to A button
-	//	- Add random Glubs as "dialogue options" (has no effect)
-	//	- Implement open/close behavior
 	public class DialogueBehavior : MonoBehaviour
 	{
 		enum BoxState
@@ -26,8 +21,16 @@ namespace SpaceJam
 			DONE		// Text has been written
 		}
 
+		string[] glubs = {
+			"\"Glub\"",
+			"\"Glub, glub\"",
+			"\"Glub?\"",
+			"\"...\""
+		};
+
 		Text textObj;		// Current dialogue text
 		Text actorNameObj;	// Current actor's name
+		Text glubObj;		// "Glub" field
 		Image imageObj;		// Current actor icon
 		[SerializeField]
 		Button buttonObj;	// Continue button
@@ -53,6 +56,7 @@ namespace SpaceJam
 
 			textObj = GameObject.Find("DialoguePanel/Dialogue").GetComponent<Text>();
 			actorNameObj = GameObject.Find("DialoguePanel/Name").GetComponent<Text>();
+			glubObj = GameObject.Find("DialoguePanel/Glub").GetComponent<Text>();
 			imageObj = GameObject.Find("DialoguePanel/Icon").GetComponent<Image>();
 			buttonObj = GameObject.Find("DialoguePanel/ContinueButton").GetComponent<Button>();
 			buttonObj.onClick.AddListener (() => { OnButtonClick(); });
@@ -165,6 +169,7 @@ namespace SpaceJam
 					textObj.text = "";
 					index = 0;
 					dialogueLine = actor.GetNextLine();
+					glubObj.text = glubs[ Mathf.RoundToInt(Random.value * 2.0f) ];
 					textState = TextState.WRITING;
 					break;
 				case TextState.WRITING:
