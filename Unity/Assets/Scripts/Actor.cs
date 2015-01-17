@@ -3,7 +3,8 @@ using System.Collections;
 
 namespace SpaceJam
 {
-	public abstract class Actor
+	// TODO: Change this to an interface
+	public abstract class Actor : MonoBehaviour
 	{
 		// Returns the name of this actor
 		public abstract string GetName();
@@ -17,8 +18,28 @@ namespace SpaceJam
 
 	public class DefaultActor : Actor
 	{
+		int state = 0;
+
 		public override string GetName() { return "Benedict Cumberbatch"; }
+
 		public override Sprite GetIcon() { return Resources.Load<Sprite>("Sprites/cumberbatch"); }
-		public override string GetNextLine() { return "I have nothing to say."; }
+
+		public override string GetNextLine()
+		{
+			string line = null;
+
+			switch (state)
+			{
+			case 0:
+				state = 1;
+				line = "I have nothing to say.";
+				break;
+			case 1:
+				state = 0;
+				break;
+			}
+
+			return line;
+		}
 	}
 }

@@ -52,7 +52,6 @@ namespace SpaceJam
 			index = 0;
 			boxState = BoxState.CLOSED;
 			textState = TextState.DONE;
-			actor = new DefaultActor();
 
 			textObj = GameObject.Find("DialoguePanel/Dialogue").GetComponent<Text>();
 			actorNameObj = GameObject.Find("DialoguePanel/Name").GetComponent<Text>();
@@ -63,12 +62,6 @@ namespace SpaceJam
 			panelObj = GameObject.Find("DialoguePanel").GetComponent<RectTransform>();
 
 			this.ForceCloseBox();
-		}
-
-		// DEBUG purposes only
-		void Start()
-		{
-			this.Talk(new DefaultActor());
 		}
 
 		// Act based on current state
@@ -87,6 +80,7 @@ namespace SpaceJam
 				// Make the panel visible
 				panelObj.GetComponent<CanvasGroup>().alpha = 1.0f;
 				boxState = BoxState.OPEN;
+				textState = TextState.WRITING;
 				break;
 			case BoxState.OPEN:
 				// Do things based on textState
@@ -121,6 +115,8 @@ namespace SpaceJam
 
 			// Get actor information
 			actorNameObj.text = actor.GetName();
+			textObj.text = "";
+			dialogueLine = actor.GetNextLine();
 			if (actor.GetIcon()) {
 				imageObj.sprite = actor.GetIcon();
 			} else {
@@ -131,6 +127,11 @@ namespace SpaceJam
 
 			// Tell the panel to open
 			OpenBox();
+		}
+
+		public bool IsTalking()
+		{
+			return !(boxState == BoxState.CLOSED);
 		}
 	
 		// Makes the dialogue box appear if it is not already showing
@@ -168,9 +169,12 @@ namespace SpaceJam
 					// Get the next line of dialogue
 					textObj.text = "";
 					index = 0;
+					glubObj.text = RandomGlub();
 					dialogueLine = actor.GetNextLine();
-					glubObj.text = glubs[ Mathf.RoundToInt(Random.value * 2.0f) ];
-					textState = TextState.WRITING;
+					if (dialogueLine != null)
+						textState = TextState.WRITING;
+					else
+						CloseBox();
 					break;
 				case TextState.WRITING:
 					// Finish writing the dialogue line to screen
@@ -182,6 +186,12 @@ namespace SpaceJam
 					break;
 				}
 			}
+		}
+
+		// Returns a random "glub" dialogue from our available list
+		string RandomGlub()
+		{
+			return glubs [Mathf.FloorToInt(Random.value * (float)glubs.Length)];
 		}
 	}
 }
