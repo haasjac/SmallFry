@@ -11,14 +11,21 @@ namespace SpaceJam
 
 		private bool grounded;
 		private bool jump;
+		private bool canInteract;
+		GameObject interactor;
 		private Animator animator;
 		DialogueBehavior dialogueEngine;
+		GameObject talkIndicator;
 		//private Transform groundCheck;
 
 		// Use this for initialization
 		void Start () {
+			canInteract = false;
+			interactor = null;
 			animator = this.GetComponent<Animator>();
-			dialogueEngine = GameObject.Find ("DialoguePanel").GetComponent<DialogueBehavior> ();
+			dialogueEngine = GameObject.Find("DialoguePanel").GetComponent<DialogueBehavior>();
+			talkIndicator = GameObject.Find("Fish/Exclamation");
+			talkIndicator.renderer.enabled = false;
 		}
 		
 		// Update is called once per frame 
@@ -27,7 +34,7 @@ namespace SpaceJam
 			//grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
 
 			// Cannot receive inputs if we are talking to someone
-			if (!dialogueEngine.IsTalking ())
+			if (!dialogueEngine.IsTalking())
 			{
 				// Jumping
 				if (Input.GetButtonDown ("Jump") && grounded) {
@@ -36,7 +43,7 @@ namespace SpaceJam
 				}
 
 				// Crouching
-				if (Input.GetButton ("Fire2") && grounded) {
+				if (Input.GetButton ("Hide") && grounded) {
 					animator.SetInteger ("Fish_anim", 2);
 				// Walking
 				} else if (Input.GetAxis ("Horizontal") != 0) {
@@ -57,28 +64,11 @@ namespace SpaceJam
 				}
 
 				// Interaction mechanics
-				if (Input.GetButtonDown ("Interact")) {
-					GameObject[] interactions = GameObject.FindGameObjectsWithTag("Interactable");
-					if (interactions.Length > 0) {
-						// Find the closest interactable object
-						GameObject closest = null;
-						float closestDist = float.MaxValue;
-						foreach (GameObject x in interactions) {
-							float distance = (x.transform.position - transform.position).sqrMagnitude;
-							if (distance < closestDist) {
-								closest = x;
-								closestDist = distance;
-							}
-						}
-						
-						// If it is within range, Interact with it
-						if ((closest.transform.position - transform.position).sqrMagnitude < interactRange) {
-							// If the object is an Actor, talk to it
-							Actor npc = closest.GetComponent<Actor>();
-							if (npc) {
-								dialogueEngine.Talk(npc);
-							}
-						}
+				if (Input.GetButtonDown ("Interact") && canInteract) {
+					// If the object is an Actor, talk to it
+					Actor npc = interactor.GetComponent<Actor>();
+					if (npc) {
+						dialogueEngine.Talk(npc);
 					}
 				}
 			} else {
@@ -100,6 +90,22 @@ namespace SpaceJam
 		void OnCollisionEnter2D(Collision2D coll) {
 			if (coll.gameObject.tag == "Ground") {
 				grounded = true;
+			}
+		}
+
+		void OnTriggerEnter2D(Collider2D coll) {
+			if (coll.gameObject.tag == "Interactable") {
+				talkIndicator.renderer.enabled = true;
+				canInteract = true;
+				interactor = coll.gameObject;
+			}
+		}
+
+		void OnTriggerExit2D(Collider2D coll) {
+			if (coll.gameObject.tag == "Interactable") {
+				talkIndicator.renderer.enabled = false;
+				canInteract = false;
+				interactor = null;
 			}
 		}
 	}

@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 
+namespace SpaceJam{
 public class Ostriches_run : MonoBehaviour {
 	public float speed;
 	public float wait_time;
@@ -47,4 +48,5 @@ public class Ostriches_run : MonoBehaviour {
 
 		}
 	}
+}
 }

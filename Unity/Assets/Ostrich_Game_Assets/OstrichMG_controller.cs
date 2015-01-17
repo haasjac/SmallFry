@@ -5,10 +5,13 @@ using System.Collections;
 public class OstrichMG_controller : MonoBehaviour {
 	public static bool crouch_time;
 	public float timer;
+	public static bool win_condition;
 	private float countdown;
 	private Text scoreText;
+
 	// Use this for initialization
 	void Start () {
+		win_condition = false;
 		countdown = timer;
 		scoreText = GameObject.Find("/Canvas/CText").GetComponent<Text>();
 		scoreText.text = "";
