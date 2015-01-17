@@ -10,6 +10,7 @@ public class Peacock_Game : MonoBehaviour {
 	Text scoreText;
 	private float game_time = 0;
 	private float switch_time = 0;
+	private float cooldown = 0;
 	private float d_time = 0;
 	private int mash = 0;
 	private int button = 0;
@@ -22,7 +23,7 @@ public class Peacock_Game : MonoBehaviour {
 	void Start () {
 		button = Mathf.FloorToInt(Random.Range (1, 4.99F));
 		buttonText = GameObject.Find("/Canvas/ButtonText").GetComponent<Text>();
-		buttonText.text = "Press Interact";
+		buttonText.text = "Press X";
 		buttonText.color = Color.black;
 		scoreText = GameObject.Find("/Canvas/ScoreText").GetComponent<Text>();
 		scoreText.text = "";
@@ -119,17 +120,23 @@ public class Peacock_Game : MonoBehaviour {
 				buttonText.text = "meh";
 			else 
 				buttonText.text = "You fucking suck";
-			buttonText.text += "\r\n Press Back to Try Again";
-			if (Input.GetButtonDown ("Back")) {
-				buttonText.text = "Press Start";
-				start = false;
-				go = false;
-				go_time = 4f;
-				game_time = 0;
-				switch_time = 0;
-				mash = 0;
+
+			buttonText.text += "\r\nPress X to try again\r\nPress A to continue";
+			cooldown += Time.deltaTime;
+			if (cooldown > 1f) {
+				if (Input.GetButtonDown ("X_button")) {
+					buttonText.text = "Press X";
+					start = false;
+					go = false;
+					go_time = 4f;
+					game_time = 0;
+					switch_time = 0;
+					mash = 0;
+				}
+				if (Input.GetButtonDown ("A_button")) {
+					Application.LoadLevel("Garden");
+				}
 			}
 		}
-
 	}
 }
