@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+namespace SpaceJam{
 public class Sgt_controller : MonoBehaviour {
 	public float speed;
 
@@ -28,4 +28,4 @@ public class Sgt_controller : MonoBehaviour {
 			
 		}
 }
-
+}
