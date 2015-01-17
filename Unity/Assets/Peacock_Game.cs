@@ -3,7 +3,8 @@ using System.Collections;
 
 public class Peacock_Game : MonoBehaviour {
 
-	public float decrease_time = 0.5f;
+	public float decrease_time = 0.25f;
+	public float Time_of_Game = 5f;
 	private float game_time = 0;
 	private float switch_time = 0;
 	private float d_time = 0;
@@ -17,7 +18,7 @@ public class Peacock_Game : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (game_time < 30) {
+		if (game_time < Time_of_Game) {
 			if (game_time < switch_time) {
 			} else {
 				switch_time += Random.Range(1, 3);
@@ -27,7 +28,11 @@ public class Peacock_Game : MonoBehaviour {
 			}
 			//print (button);
 			if (Input.GetButtonDown ("Fire" + button)) {
-					mash ++;
+					mash += 3;
+			}
+			if (Input.GetButtonDown ("Fire1") || Input.GetButtonDown ("Fire2") || 
+			    Input.GetButtonDown ("Fire3") || Input.GetButtonDown ("Fire4")) {
+				mash --;
 			}
 			game_time += Time.deltaTime;
 
