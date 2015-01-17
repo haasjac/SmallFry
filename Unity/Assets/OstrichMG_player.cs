@@ -1,59 +1,60 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace SpaceJam {
-public class OstrichMG_player : MonoBehaviour {
-	public float speed;
-	public float jumpForce;
-	private bool grounded;
-	private bool jump;
-	public float Accelerate;
-	public static Vector3 playersPOS;
-	//private Transform groundCheck;
-	
-	// Use this for initialization
-	void Start () {
-		//groundCheck = transform.Find ("groundCheck");
-	}
-	
-	// Update is called once per frame 
-	void Update () {
-		
-		//grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
-		
-		if (Input.GetButtonDown ("Jump") && grounded) {
-			jump = true;
-			grounded = false;
-		}
-		
-		if(jump)
-		{
-			// Add a vertical force to the player.
-			rigidbody2D.AddForce(new Vector2(0f, jumpForce));
+namespace SpaceJam
+{
+	public class OstrichMG_player : MonoBehaviour
+	{
+		public float speed;
+		public float jumpForce;
+		private bool grounded;
+		private bool jump;
+		public float Accelerate;
+		public static float playersPOS;
+		public static bool player_is_safe;
+		//private Transform groundCheck;
 			
-			// Make sure the player can't jump again until the jump conditions from Update are satisfied.
-			jump = false;
+		// Use this for initialization
+		void Start () {
+			//groundCheck = transform.Find ("groundCheck");
 		}
 		
-		
+		// Update is called once per frame 
+		void Update () {
+		player_is_safe = false;
+		if (Input.GetAxis ("Vertical") < 0) {	
+						player_is_safe = true;
+						Accelerate = 0;
+						print ("CROUCHING");
+						//ANIMATION running -> Hiding
+				} 
+		else player_is_safe = false;
+	
+		if (OstrichMG_controller.crouch_time && !player_is_safe) {
+			// GET REKT!!
+			Vector3 pos = transform.position;
+			pos.x = -300.0f ;
+			playersPOS = pos.x;
+			transform.position = pos;
+		}
+		player_is_safe = false;
+	
+	
 		if (Input.GetAxis ("Horizontal") != 0) {
 			if (Input.GetAxis ("Horizontal") > 0)
 			{
 				Accelerate+= 0.01f;
 				Vector3 pos = transform.position;
 				pos.x += Accelerate + speed ;
-				playersPOS = pos;
+				playersPOS = pos.x;
 				transform.position = pos;
 			}
-			else Accelerate = 0;
-			
-		}
-	}
+		else Accelerate = 0;
+		
 	
-	void OnCollisionEnter2D(Collision2D coll) {
-		if (coll.gameObject.tag == "Ground") {
-			grounded = true;
+				
+				
+			}
 		}
 	}
-}
 }
