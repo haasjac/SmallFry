@@ -4,6 +4,11 @@ using System.Collections;
 
 namespace SpaceJam
 {
+
+	// TODO:
+	//	- Change icon to A button
+	//	- Add random Glubs as "dialogue options" (has no effect)
+	//	- Implement open/close behavior
 	public class DialogueBehavior : MonoBehaviour
 	{
 		enum BoxState
@@ -52,6 +57,8 @@ namespace SpaceJam
 			buttonObj = GameObject.Find("DialoguePanel/ContinueButton").GetComponent<Button>();
 			buttonObj.onClick.AddListener (() => { OnButtonClick(); });
 			panelObj = GameObject.Find("DialoguePanel").GetComponent<RectTransform>();
+
+			this.ForceCloseBox();
 		}
 
 		// DEBUG purposes only
