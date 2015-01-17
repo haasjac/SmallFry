@@ -154,6 +154,7 @@ GameObject:
   - 33: {fileID: 743913774}
   - 65: {fileID: 743913773}
   - 23: {fileID: 743913772}
+  - 114: {fileID: 743913776}
   m_Layer: 0
   m_Name: Ostrich_Game_Right_Waypoint
   m_TagString: Untagged
@@ -207,11 +208,25 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 743913771}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 317, y: -2, z: 0}
+  m_LocalPosition: {x: 1498.30005, y: -2, z: 0}
   m_LocalScale: {x: 1.01375091, y: 100.770592, z: 4.77059269}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!114 &743913776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 743913771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b1fc4c3111d454dac210c370b98537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeSpeed: 1.5
+  lvl_name: Desert
+  lvl_name_fail: Ostrich_Game
 --- !u!1 &753548979
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,7 +684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a220f497c75bde34e9a56476f22edb40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 5
+  timer: 4
 --- !u!114 &1123895270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -850,7 +865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: .5
-  wait_time: 2.97000003
+  wait_time: 4
 --- !u!1 &1731672235
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,7 +926,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 90
+  orthographic size: 60
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -998,8 +1013,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1991625321}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -7.76999998, z: 0}
-  m_LocalScale: {x: 626.557251, y: 1, z: 1}
+  m_LocalPosition: {x: 688, y: -8, z: 0}
+  m_LocalScale: {x: 2169.45459, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
