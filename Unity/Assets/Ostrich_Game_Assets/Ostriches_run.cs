@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 
+namespace SpaceJam{
 public class Ostriches_run : MonoBehaviour {
 	public float speed;
 	public float wait_time;
@@ -33,13 +34,13 @@ public class Ostriches_run : MonoBehaviour {
 					is_waiting = true;
 			}
 	
-			if (OstrichMG_player.playersPOS - transform.position.x > 5) {
+			if ( transform.position.x > 5) {
 					Vector3 pos = transform.position;
 					pos.x += UnityEngine.Random.Range (3, 6) * speed;
 					transform.position = pos;
 			} 
 
-			else if (OstrichMG_player.playersPOS - transform.position.x < 5 ) {
+			else if ( transform.position.x < 5 ) {
 					Vector3 pos = transform.position;
 					pos.x += UnityEngine.Random.Range (0, 3) * speed;
 					transform.position = pos;	
@@ -47,4 +48,5 @@ public class Ostriches_run : MonoBehaviour {
 
 		}
 	}
+}
 }
