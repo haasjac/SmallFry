@@ -70,13 +70,17 @@ namespace SpaceJam
 				// Posing
 				} else if (Input.GetAxis("Pose_vert") > 0 && GlobalState.instance.peacockGameComplete) {
 					animator.SetInteger("Fish_anim", 5);
+					print ("pose");
 				} else if (Input.GetAxis("Pose_vert") < 0 && GlobalState.instance.peacockGameComplete) {
 					animator.SetInteger("Fish_anim", 6);
+					print ("pose");
 				} else if (Input.GetAxis("Pose_horiz") > 0 && GlobalState.instance.peacockGameComplete) {
 					animator.SetInteger("Fish_anim", 7);
+					print ("pose");
 				} else if (Input.GetAxis("Pose_horiz") < 0 && GlobalState.instance.peacockGameComplete) {
 					animator.SetInteger("Fish_anim", 8);
-				// Idle
+					print ("pose");
+					// Idle
 				} else {
 					animator.SetInteger ("Fish_anim", 0);
 				}
