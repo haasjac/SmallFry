@@ -20,10 +20,11 @@ public class Peacock_Game : MonoBehaviour {
 	Image bar;
 	Image smashButton;
 	CanvasGroup smashPanel;
+	private Animator peacock;
+	private Animator fish;
 
 	// Use this for initialization
 	void Start () {
-		button = Mathf.FloorToInt(Random.Range (1, 4.99F));
 		buttonText = GameObject.Find ("/Canvas/ButtonText").GetComponent<Text>();
 		scoreText = GameObject.Find("/Canvas/ScoreText").GetComponent<Text>();
 		scoreText.text = "";
@@ -32,11 +33,15 @@ public class Peacock_Game : MonoBehaviour {
 		smashButton = GameObject.Find("Mash/Button").GetComponent<Image>();
 		smashPanel = GameObject.Find ("Mash").GetComponent<RectTransform>().GetComponent<CanvasGroup>();
 		smashPanel.alpha = 0.0f;
+		peacock = GameObject.Find ("Peacock_peacock").GetComponent<Animator>();
+		fish = GameObject.Find ("Fish_peacock").GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
 	void Update() {
 		// TODO: Change from Interact to X_button
+		fish.SetInteger ("pose", button);
+		peacock.SetInteger ("pose", button);
 		if (Input.GetButtonDown ("X_button") && start == false) {
 			GameObject.Find("Explanation Panel").GetComponent<CanvasGroup>().alpha = 0.0f;
 			start = true;
@@ -132,13 +137,13 @@ public class Peacock_Game : MonoBehaviour {
 			cooldown += Time.deltaTime;
 			if (cooldown > 1f) {
 				if (Input.GetButtonDown ("X_button")) {
-					buttonText.text = "Press X";
 					start = false;
 					go = false;
 					go_time = 4f;
 					game_time = 0;
 					switch_time = 0;
 					mash = 0;
+					button = 0;
 				}
 				if (Input.GetButtonDown ("A_button")) {
 					Application.LoadLevel("Garden");

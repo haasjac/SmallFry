@@ -46,20 +46,19 @@ namespace SpaceJam
 		// Preserve the entire dialogue system between scenes
 		void Awake()
 		{
-			DontDestroyOnLoad (transform.gameObject);
 			cooldownTimer = 0.0f;
 			dialogueLine = "";
 			index = 0;
 			boxState = BoxState.CLOSED;
 			textState = TextState.DONE;
 
-			textObj = GameObject.Find("DialoguePanel/Dialogue").GetComponent<Text>();
-			actorNameObj = GameObject.Find("DialoguePanel/Name").GetComponent<Text>();
-			glubObj = GameObject.Find("DialoguePanel/Glub").GetComponent<Text>();
-			imageObj = GameObject.Find("DialoguePanel/Icon").GetComponent<Image>();
-			buttonObj = GameObject.Find("DialoguePanel/ContinueButton").GetComponent<Button>();
+			textObj = GameObject.Find("/Canvas/DialoguePanel/Dialogue").GetComponent<Text>();
+			actorNameObj = GameObject.Find("/Canvas/DialoguePanel/Name").GetComponent<Text>();
+			glubObj = GameObject.Find("/Canvas/DialoguePanel/Glub").GetComponent<Text>();
+			imageObj = GameObject.Find("/Canvas/DialoguePanel/Icon").GetComponent<Image>();
+			buttonObj = GameObject.Find("/Canvas/DialoguePanel/ContinueButton").GetComponent<Button>();
 			buttonObj.onClick.AddListener (() => { OnButtonClick(); });
-			panelObj = GameObject.Find("DialoguePanel").GetComponent<RectTransform>();
+			panelObj = GameObject.Find("/Canvas/DialoguePanel").GetComponent<RectTransform>();
 
 			this.ForceCloseBox();
 		}
@@ -147,14 +146,15 @@ namespace SpaceJam
 			if (textState == TextState.WRITING) {
 				Debug.Log ("Someone tried to close the dialogue box while it was writing text!");
 			} else if (boxState == BoxState.OPEN || boxState == BoxState.OPENING) {
-				ForceCloseBox();
+				boxState = BoxState.CLOSING;
 			}
 		}
 
 		// Closes the dialogue box even if it is still writing text
 		void ForceCloseBox()
 		{
-			boxState = BoxState.CLOSING;
+			panelObj.GetComponent<CanvasGroup>().alpha = 0.0f;
+			boxState = BoxState.CLOSED;
 		}
 
 		// What happens when the player presses the continue button
@@ -170,12 +170,20 @@ namespace SpaceJam
 					// Get the next line of dialogue
 					textObj.text = "";
 					index = 0;
+					actorNameObj.text = actor.GetName();
+					if (actor.GetIcon()) {
+						imageObj.sprite = actor.GetIcon();
+					} else {
+						// Default white icon
+						imageObj.sprite = Sprite.Create(Texture2D.whiteTexture, new Rect(0, 0, 64, 64), new Vector2(0f, 0f));
+						Debug.Log ("Dialogue Engine failed to load a sprite from actor " + actor.GetName());
+					}
 					dialogueLine = actor.GetNextLine();
 					if (dialogueLine != null) {
 						glubObj.text = RandomGlub();
 						textState = TextState.WRITING;
 					} else {
-						CloseBox();
+						ForceCloseBox();
 					}
 					break;
 				case TextState.WRITING:
