@@ -34,13 +34,13 @@ public class Ostriches_run : MonoBehaviour {
 					is_waiting = true;
 			}
 	
-			if ( transform.position.x > 5) {
+				if ( (transform.position.x - OstrichMG_player.playersPOS)  < 1) {
 					Vector3 pos = transform.position;
 					pos.x += UnityEngine.Random.Range (0,3) * speed;
 					transform.position = pos;
 			} 
 
-			else if ( transform.position.x < 5 ) {
+				else if ( (transform.position.x - OstrichMG_player.playersPOS)  > 1) {
 					Vector3 pos = transform.position;
 					pos.x += UnityEngine.Random.Range (0,3) * speed;
 					transform.position = pos;	

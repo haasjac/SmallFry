@@ -10,9 +10,11 @@ GameObject:
   - 4: {fileID: 472022}
   - 212: {fileID: 21272022}
   - 95: {fileID: 9572022}
+  - 61: {fileID: 6191768}
+  - 114: {fileID: 11491768}
   m_Layer: 0
   m_Name: Seagull
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24,11 +26,22 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 172022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.5400009, y: -6.9000001, z: 0}
+  m_LocalPosition: {x: -7, y: -9.39999962, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &6191768
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172022}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 4.80000019, y: 6.40000057}
+  m_Center: {x: 0, y: 0}
 --- !u!95 &9572022
 Animator:
   serializedVersion: 3
@@ -44,6 +57,17 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11491768
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a488e0e050759242a6a1e46cfb87126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21272022
 SpriteRenderer:
   m_ObjectHideFlags: 1

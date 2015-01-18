@@ -17,7 +17,7 @@ namespace SpaceJam
 		private float wait_time;
 		public static bool move_enable;
 		public int hp;
-		private Text scoreText;
+		private static Text scoreText;
 		//private Transform groundCheck;
 			
 		// Use this for initialization
@@ -32,9 +32,10 @@ namespace SpaceJam
 		// Update is called once per frame 
 		void Update () {
 			scoreText.text = "Lives left:" + hp;
+			playersPOS = transform.position.x;
 
 		if (hp < 1) {
-				scoreText.text = "Try again? \n Press X to try again\n Press B to go back";
+				scoreText.text = "Try again? Press X to try again or B to go back";
 				if (Input.GetButtonDown("X_button"))
 				    {
 					Application.LoadLevel("Ostrich_Game");
@@ -48,7 +49,6 @@ namespace SpaceJam
 		if (Input.GetAxis ("Vertical") < 0) {	
 						player_is_safe = true;
 						Accelerate = 0;
-						print ("CROUCHING");
 						//ANIMATION running -> Hiding
 				} 
 		else player_is_safe = false;
