@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 namespace SpaceJam
@@ -15,16 +16,34 @@ namespace SpaceJam
 		public  float Wait_time;
 		private float wait_time;
 		public static bool move_enable;
+		public int hp;
+		private Text scoreText;
 		//private Transform groundCheck;
 			
 		// Use this for initialization
 		void Start () {
 			wait_time = 0;
+			scoreText = GameObject.Find("/Canvas/HPText").GetComponent<Text>();
+			scoreText.text = "";
+			scoreText.color = Color.black;
 			//groundCheck = transform.Find ("groundCheck");
 		}
 		
 		// Update is called once per frame 
 		void Update () {
+			scoreText.text = "Lives left:" + hp;
+
+		if (hp < 1) {
+				scoreText.text = "Try again? \n Press X to try again\n Press B to go back";
+				if (Input.GetButtonDown("X_button"))
+				    {
+					Application.LoadLevel("Ostrich_Game");
+					}	
+				if (Input.GetButtonDown("B_button"))
+				{
+					Application.LoadLevel("Desert");
+				}
+						}
 		player_is_safe = false;
 		if (Input.GetAxis ("Vertical") < 0) {	
 						player_is_safe = true;
@@ -34,13 +53,10 @@ namespace SpaceJam
 				} 
 		else player_is_safe = false;
 	
-		if (OstrichMG_controller.crouch_time && !player_is_safe && (wait_time < 1)) {
+		if (OstrichMG_controller.crouch_time && !player_is_safe ) {
 								// GET REKT!!
-				move_enable = true;
+				hp--;
 						} 
-		else {
-				wait_time-= Time.deltaTime;
-			}
 
 		player_is_safe = false;
 	
