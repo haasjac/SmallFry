@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: fe444d80a2e42d84abd680ab0704f8c7
+guid: 36a0a8381146e5c44b2cc358e06be3f2
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Peacock_pose3_0
-    21300002: Peacock_pose3_1
+    21300000: Goldfish_pose4_0
+    21300002: Goldfish_pose4_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -45,23 +45,23 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Peacock_pose3_0
+    - name: Goldfish_pose4_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 960
-        height: 960
+        width: 480
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Peacock_pose3_1
+    - name: Goldfish_pose4_1
       rect:
         serializedVersion: 2
-        x: 960
+        x: 480
         y: 0
-        width: 960
-        height: 960
+        width: 480
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

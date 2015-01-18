@@ -5,13 +5,13 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Fish_pose3_0
+  m_Name: Peacock_pose2_0
   serializedVersion: 2
   m_AnimatorParameters: []
   m_AnimatorLayers:
   - serializedVersion: 3
     m_Name: Base Layer
-    m_StateMachine: {fileID: 110713772}
+    m_StateMachine: {fileID: 110776798}
     m_Mask: {fileID: 0}
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
@@ -20,31 +20,31 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1102 &110213772
+--- !u!1102 &110276798
 State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: fish_pose_x
+  m_Name: Peacock_pose_b
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: e94f1382e8fcd1b4e836eccac2823efc, type: 2}
-  m_ParentStateMachine: {fileID: 110713772}
+  - {fileID: 7400000, guid: 6c6afa7d7369fce4f84f6c0bc16740a3, type: 2}
+  m_ParentStateMachine: {fileID: 110776798}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
---- !u!1107 &110713772
+--- !u!1107 &110776798
 StateMachine:
   serializedVersion: 2
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Base Layer
-  m_DefaultState: {fileID: 110213772}
+  m_DefaultState: {fileID: 110276798}
   m_States:
-  - {fileID: 110213772}
+  - {fileID: 110276798}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions: {}

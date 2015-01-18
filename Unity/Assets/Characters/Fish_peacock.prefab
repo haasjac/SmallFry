@@ -25,10 +25,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 476234}
   - 212: {fileID: 21276234}
-  - 114: {fileID: 11476234}
   - 50: {fileID: 5076234}
   - 60: {fileID: 6076234}
   - 95: {fileID: 9576234}
+  - 114: {fileID: 11483326}
   m_Layer: 10
   m_Name: Fish_peacock
   m_TagString: Player
@@ -100,13 +100,13 @@ Animator:
   m_GameObject: {fileID: 176234}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 63bc73220352ce7418d45a1d3468972f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 49fe86bd38c5199479b4ca8780eccfb0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11476234
+--- !u!114 &11483326
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -114,14 +114,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 176234}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9982c112970f604a953358f16c4dd9f, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e7a0c75aba341d4a8ea78dc8e51da78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: .200000003
-  jumpForce: 300
-  interactRange: 1
-  leave_as_false: 0
-  horiz: 0
 --- !u!212 &21218352
 SpriteRenderer:
   m_ObjectHideFlags: 1
