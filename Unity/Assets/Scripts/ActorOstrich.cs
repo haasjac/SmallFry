@@ -58,10 +58,10 @@ namespace SpaceJam
 			{
 			case OstrichState.IDLE:
 			case OstrichState.DIALOG_2:
-				icon = Resources.Load<Sprite>("Sprites/question");
+				icon = Resources.Load<Sprite>("Sprites/ostrich");
 				break;
 			case OstrichState.DIALOG_1:
-				icon = Resources.Load<Sprite>("Sprites/ostrich");
+				icon = Resources.Load<Sprite>("Sprites/question");
 				break;
 			case OstrichState.DIALOG_3:
 				icon = Resources.Load<Sprite>("Sprites/hummingbird");
