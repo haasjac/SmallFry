@@ -26,6 +26,7 @@ public class EndGameController : MonoBehaviour {
 				if (wincon){
 				if (Input.GetButtonDown("X_button"))
 				{
+						Time.timeScale = 1;
 					Application.LoadLevel(lvl_name);
 				}}
 				else{
