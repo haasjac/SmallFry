@@ -86,6 +86,7 @@ namespace SpaceJam
 				case PenguinState.CLOSE:
 					GlobalState.instance.staircaseUnlocked = true;
 					state = PenguinState.RAND_1_PREP;
+					Application.LoadLevel("Cloud_win");
 					line = null;
 					break;
 				default:
