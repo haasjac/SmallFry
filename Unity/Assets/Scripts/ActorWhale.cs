@@ -29,7 +29,7 @@ namespace SpaceJam
 		// Use this for initialization
 		void Start()
 		{
-			state = WhaleState.RAND_1_PREP;
+			state = WhaleState.INTRO_2;
 		}
 		
 		// Update is called once per frame
@@ -45,7 +45,7 @@ namespace SpaceJam
 		
 		public override Sprite GetIcon()
 		{
-			return Resources.Load<Sprite>("Sprites/whale");
+			return Resources.Load<Sprite>("Sprites/whaleking");
 		}
 		
 		public override string GetNextLine()
@@ -54,13 +54,12 @@ namespace SpaceJam
 				switch (state) {
 				case WhaleState.INTRO_2:
 					AudioSource.PlayClipAtPoint(clip, new Vector3(0,0,0));
-					
 					state = WhaleState.INTRO_3;
 					line = "Ah, hello my faithful little companion. Ummmm... What was your name again?";
 					break;
 				case WhaleState.INTRO_3:
 					state = WhaleState.INTRO_4;
-					line = "Right then, Small Fry. I have chosen you for a very important task! huehuehuehue";
+					line = "Right then, Small Fry. I have chosen you for a very important task! Huehuehuehue";
 					break;
 				case WhaleState.INTRO_4:
 					state = WhaleState.INTRO_5;
@@ -68,16 +67,13 @@ namespace SpaceJam
 					break;
 				case WhaleState.INTRO_5:
 					state = WhaleState.CLOSE;
-					line = "... well, off you go then! good luck!!! huehuehuehuehue";
+					line = "...Well, off you go then! Good luck!!! Huehuehuehuehue";
 					break;
 				case WhaleState.CLOSE:
 					GlobalState.instance.talkedToWhale = true;
 					state = WhaleState.RAND_1_PREP;
 					line = null;
-					break;
-				default:
-					state = WhaleState.INTRO_2;
-					line = "My oh my... Another fish, washed up on the shore.";
+				Application.LoadLevel("Comic");
 					break;
 				}
 			return line;
