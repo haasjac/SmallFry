@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace SpaceJam
 {
@@ -21,7 +22,8 @@ namespace SpaceJam
 		//private Transform groundCheck;
 
 		// Use this for initialization
-		void Start () {
+		void Start()
+		{
 			canInteract = false;
 			interactor = null;
 			animator = this.GetComponent<Animator>();
@@ -35,6 +37,20 @@ namespace SpaceJam
 				dialogueEngine.Talk(interactor.GetComponent<Actor>());
 			}
 
+			List<string> levels = new List<string>() {"Beach_Penguin", "Beach_Seagull", "Garden", "Desert"};
+
+			if (levels.Exists(x => x == Application.loadedLevelName)) {
+				if (GlobalState.instance.enterSide == GlobalState.ScreenSide.LEFT) {
+					Vector3 pos = transform.position;
+					pos.x  = -20;
+					transform.position = pos;
+				} else if (GlobalState.instance.enterSide == GlobalState.ScreenSide.RIGHT) {
+					Vector3 pos = transform.position;
+					pos.x  = 20;
+					transform.position = pos;
+				}
+			}
+
 			// TODO: Spawn on the correct side based on GlobalState.instance.enterSide
 		}
 		
@@ -42,6 +58,11 @@ namespace SpaceJam
 		void Update ()
 		{
 			//grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+			if (canInteract && !dialogueEngine.IsTalking ()) {
+				talkIndicator.renderer.enabled = true;
+			} else {
+				talkIndicator.renderer.enabled = false;
+			}
 
 			// Cannot receive inputs if we are talking to someone
 			if (!frozen && (!dialogueEngine || !dialogueEngine.IsTalking()))
@@ -94,6 +115,7 @@ namespace SpaceJam
 
 				// Interaction mechanics
 				if (Input.GetButtonDown ("Interact") && canInteract) {
+
 					// If the object is an Actor, talk to it
 					Actor npc = interactor.GetComponent<Actor>();
 					if (npc) {
@@ -132,7 +154,6 @@ namespace SpaceJam
 
 		void OnTriggerEnter2D(Collider2D coll) {
 			if (coll.gameObject.tag == "Interactable") {
-				talkIndicator.renderer.enabled = true;
 				canInteract = true;
 				interactor = coll.gameObject;
 			}
@@ -140,7 +161,6 @@ namespace SpaceJam
 
 		void OnTriggerExit2D(Collider2D coll) {
 			if (coll.gameObject.tag == "Interactable") {
-				talkIndicator.renderer.enabled = false;
 				canInteract = false;
 				interactor = null;
 			}

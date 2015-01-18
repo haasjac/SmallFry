@@ -17,16 +17,18 @@ namespace SpaceJam
 
 		void OnCollisionEnter2D(Collision2D coll) {
 			if (coll.gameObject.tag == "Respawn") {
-				Debug.Log("Respawn");
-				Vector3 pos = new Vector3(x,y,0f);
+				Debug.Log ("Respawn");
+				Vector3 pos = new Vector3 (x, y, 0f);
 				transform.position = pos;
 				if (GlobalState.instance.fishingRodGet) {
 					GlobalState.instance.fishingRodGet = false;
 					poleObj.renderer.enabled = true;
-					poleObj.GetComponent<BoxCollider2D>().enabled = true;
+					poleObj.GetComponent<BoxCollider2D> ().enabled = true;
 				}
 			}
+		}
 
+		void OnTriggerEnter2D(Collider2D coll) {
 			if (coll.gameObject.tag == "Pole") {
 				Debug.Log("Got pole");
 				poleObj = coll.gameObject;
