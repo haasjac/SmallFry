@@ -31,21 +31,19 @@ namespace SpaceJam
 		
 		// Update is called once per frame 
 		void Update () {
-			scoreText.text = "Lives left:" + hp;
+			//scoreText.text = "Lives left:" + hp;
 			playersPOS = transform.position.x;
 
 		if (hp < 1) {
+				OstrichMG_controller.lose = true;
 				OstrichMG_controller.start = false;
-				scoreText.text = "Try again? Press X to try again or B to go back";
+				scoreText.text = "You gotta hide! Press X";
 				if (Input.GetButtonDown("X_button"))
 				    {
 					Application.LoadLevel("Ostrich_Game");
+					OstrichMG_controller.lose = false;
 					}	
-				if (Input.GetButtonDown("B_button"))
-				{
-					Application.LoadLevel("Desert");
-				}
-						}
+		}
 		player_is_safe = false;
 		if (Input.GetButton("Hide")) {	
 						player_is_safe = true;
