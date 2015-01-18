@@ -115,7 +115,6 @@ namespace SpaceJam
 			// Get actor information
 			actorNameObj.text = actor.GetName();
 			textObj.text = "";
-			dialogueLine = actor.GetNextLine();
 			if (actor.GetIcon()) {
 				imageObj.sprite = actor.GetIcon();
 			} else {
@@ -123,6 +122,7 @@ namespace SpaceJam
 				imageObj.sprite = Sprite.Create(Texture2D.whiteTexture, new Rect(0, 0, 64, 64), new Vector2(0f, 0f));
 				Debug.Log ("Dialogue Engine failed to load a sprite from actor " + actor.GetName());
 			}
+			dialogueLine = actor.GetNextLine();
 
 			// Tell the panel to open
 			OpenBox();
