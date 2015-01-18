@@ -48,7 +48,7 @@ public class EndGameController : MonoBehaviour {
 
 		}
 		
-		void OnTriggerStay2D(Collider2D coll) {
+		void OnTriggerExit2D(Collider2D coll) {
 			if (coll.gameObject.tag == "Player") 
 			{
 				OstrichMG_controller.start = false;
@@ -58,7 +58,7 @@ public class EndGameController : MonoBehaviour {
 				wincon = true;	
 				gamend = true;
 			}
-			else if (coll.gameObject.tag == "AI") 
+			if (coll.gameObject.tag == "AI") 
 			{
 				OstrichMG_controller.start = false;
 				print ("OSTRICH");
