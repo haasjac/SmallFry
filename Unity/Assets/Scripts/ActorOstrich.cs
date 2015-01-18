@@ -86,7 +86,7 @@ namespace SpaceJam
                     break;
                 default:
                     state = OstrichState.CLOSE;
-                    line = "Owww, my aching everything...";
+                    line = "Owww, my aching everything... Don't forget to hide with B if you ever see the Sarge again!";
                     break;
                 }
             } else {
