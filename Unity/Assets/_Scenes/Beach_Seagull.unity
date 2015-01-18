@@ -195,6 +195,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11491768, guid: 796a7e57dbd9281458d124b2f6c6e129, type: 2}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 64909145999dc7e4ebe0f4fc61fa202b, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 796a7e57dbd9281458d124b2f6c6e129, type: 2}
   m_RootGameObject: {fileID: 1588919057}
@@ -675,7 +679,7 @@ Transform:
   m_PrefabInternal: {fileID: 307999474}
   m_GameObject: {fileID: 485003785}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.333333343, z: 0}
+  m_LocalPosition: {x: 0, y: 4.36999989, z: 0}
   m_LocalScale: {x: 3.33333325, y: 3.33333325, z: 1}
   m_Children: []
   m_Father: {fileID: 1885199944}
@@ -1150,6 +1154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a488e0e050759242a6a1e46cfb87126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 64909145999dc7e4ebe0f4fc61fa202b, type: 3}
 --- !u!61 &1588919062
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1406,7 +1411,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1425,7 +1430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: .200000003
-  jumpForce: 300
+  jumpForce: 600
   interactRange: 1
   leave_as_false: 0
   horiz: 0
