@@ -83,6 +83,12 @@ namespace SpaceJam
 					if (npc) {
 						// Turn on the idle animation
 						animator.SetInteger ("Fish_anim", 0);
+
+						// Special case for the seagull game
+						if (Application.loadedLevelName.Equals("Seagull_Game")) {
+							GlobalState.instance.seagullGameComplete = true;
+						}
+
 						dialogueEngine.Talk(npc);
 					}
 				}
