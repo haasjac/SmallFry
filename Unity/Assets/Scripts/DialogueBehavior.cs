@@ -43,8 +43,7 @@ namespace SpaceJam
 		TextState textState;
 		float cooldownTimer;
 
-		// Preserve the entire dialogue system between scenes
-		void Awake()
+		void Start()
 		{
 			cooldownTimer = 0.0f;
 			dialogueLine = "";
