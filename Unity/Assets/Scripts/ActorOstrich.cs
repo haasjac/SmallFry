@@ -13,7 +13,8 @@ namespace SpaceJam
 			DIALOG_3,
 			DIALOG_END,
 			DIALOG_DONE,
-			AFTER_MG_IDLE
+			AFTER_MG_IDLE,
+            CLOSE
 		}
 
 		OstrichState state;
@@ -34,8 +35,8 @@ namespace SpaceJam
 		{
 			string name = "";
 
-			switch(state)
-			{
+			switch (state)
+            {
 			case OstrichState.IDLE:
 			case OstrichState.DIALOG_2:
 				name = "Olly Ostrich";
@@ -76,31 +77,45 @@ namespace SpaceJam
 		{
 			string line = null;
 			
-			switch (state)
-			{
-			case OstrichState.IDLE:
-				state = OstrichState.DIALOG_1;
-				AudioSource.PlayClipAtPoint(clip, new Vector3(0,0,0));
-				line = "Shh! Get down and hide, or the sergeant will find us!";
-				break;
-			case OstrichState.DIALOG_1:
-				state = OstrichState.DIALOG_2;
-				line = "What are you doing slacking off, soldiers? GET BACK TO TRAINING!";
-				break;
-			case OstrichState.DIALOG_2:
-				state = OstrichState.DIALOG_3;
-				line = "Ahh! He found us!";
-				break;
-			case OstrichState.DIALOG_3:
-				state = OstrichState.DIALOG_END;
-				line = "Everyone, get on the track and RUN! That means you, blubberbrains!";
-				break;
-			case OstrichState.DIALOG_END:
-				state = OstrichState.DIALOG_DONE;
-				line = null;
-				Application.LoadLevel("Ostrich_Game");
-				break;
-			}
+            if (GlobalState.instance.ostrichGameComplete) {
+		switch (state)
+                {
+                case OstrichState.CLOSE:
+                    state = OstrichState.AFTER_MG_IDLE;
+                    line = null;
+                    break;
+                default:
+                    state = OstrichState.CLOSE;
+                    line = "Owww, my aching everything...";
+                    break;
+                }
+            } else {
+                switch (state)
+                {
+                case OstrichState.IDLE:
+                    state = OstrichState.DIALOG_1;
+                    AudioSource.PlayClipAtPoint(clip, new Vector3(0, 0, 0));
+                    line = "Shh! Get down and hide, or the sergeant will find us!";
+                    break;
+                case OstrichState.DIALOG_1:
+                    state = OstrichState.DIALOG_2;
+                    line = "What are you doing slacking off, soldiers? GET BACK TO TRAINING!";
+                    break;
+                case OstrichState.DIALOG_2:
+                    state = OstrichState.DIALOG_3;
+                    line = "Ahh! He found us!";
+                    break;
+                case OstrichState.DIALOG_3:
+                    state = OstrichState.DIALOG_END;
+                    line = "Everyone, get on the track and RUN! That means you, blubberbrains!";
+                    break;
+                case OstrichState.DIALOG_END:
+                    state = OstrichState.DIALOG_DONE;
+                    line = null;
+                    Application.LoadLevel("Ostrich_Game");
+                    break;
+                }
+            }
 			
 			return line;
 		}
