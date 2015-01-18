@@ -18,33 +18,37 @@ public class Peacock_Game : MonoBehaviour {
 	private bool go = false;
 	private float go_time = 4f;
 	Image bar;
+	Image smashButton;
+	CanvasGroup smashPanel;
 
 	// Use this for initialization
 	void Start () {
 		button = Mathf.FloorToInt(Random.Range (1, 4.99F));
-		buttonText = GameObject.Find("/Canvas/ButtonText").GetComponent<Text>();
-		buttonText.text = "";
-		buttonText.color = Color.black;
+		buttonText = GameObject.Find ("/Canvas/ButtonText").GetComponent<Text>();
 		scoreText = GameObject.Find("/Canvas/ScoreText").GetComponent<Text>();
 		scoreText.text = "";
 		scoreText.color = Color.black;
 		bar = GameObject.Find("ProgBar/Fill").GetComponent<Image>();
+		smashButton = GameObject.Find("Mash/Button").GetComponent<Image>();
+		smashPanel = GameObject.Find ("Mash").GetComponent<RectTransform>().GetComponent<CanvasGroup>();
+		smashPanel.alpha = 0.0f;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update() {
 		// TODO: Change from Interact to X_button
-		if (Input.GetButtonDown ("Interact") && start == false) {
-			GameObject.Find ("Explanation Panel").GetComponent<CanvasGroup>().alpha = 0.0f;
+		if (Input.GetButtonDown ("X_button") && start == false) {
+			GameObject.Find("Explanation Panel").GetComponent<CanvasGroup>().alpha = 0.0f;
 			start = true;
 		}
 
 		if (start) {
-			buttonText.text = Mathf.FloorToInt(go_time).ToString();
+			scoreText.text = Mathf.FloorToInt(go_time).ToString();
 			go_time -= Time.deltaTime;
 			if (go_time <= 1) {
 				start = false;
 				go = true;
+				smashPanel.alpha = 1.0f;
 			}
 		}
 
@@ -86,24 +90,14 @@ public class Peacock_Game : MonoBehaviour {
 			}
 			d_time += Time.deltaTime;
 			if (button == 1) {
-				buttonText.text = "Press A";
+				smashButton.sprite = Resources.Load<Sprite>("Sprites/A Button");
 			} else if (button == 2) {
-				buttonText.text = "Press B";
+				smashButton.sprite = Resources.Load<Sprite>("Sprites/B Button");
 			} else if (button == 3) {
-				buttonText.text = "Press X";
+				smashButton.sprite = Resources.Load<Sprite>("Sprites/X Button");
 			} else if (button == 4) {
-				buttonText.text = "Press Y";
+				smashButton.sprite = Resources.Load<Sprite>("Sprites/Y Button");
 			}
-			if (button == 4)
-				buttonText.color = Color.yellow;
-			else if (button == 3)
-				buttonText.color = Color.blue;
-			else if (button == 2)
-				buttonText.color = Color.red;
-			else if (button == 1)
-				buttonText.color = Color.green;
-			else 
-				buttonText.color = Color.black;
 
 			if (mash < 100) {
 				bar.fillAmount = mash / 100f;
@@ -121,6 +115,7 @@ public class Peacock_Game : MonoBehaviour {
 			}
 			scoreText.text = "Time: " + Mathf.CeilToInt(Time_of_Game - game_time) + "\r\n Score: " + mash;
 		} else if (go) {
+			smashPanel.alpha = 0.0f;
 			buttonText.color = Color.black;
 			if (mash > 100)
 				buttonText.text = "Yippie kay ay";

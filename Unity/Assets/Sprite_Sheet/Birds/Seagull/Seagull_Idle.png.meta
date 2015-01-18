@@ -1,12 +1,11 @@
 fileFormatVersion: 2
-guid: 6f269d3f3c0efc44b979000c8fe79768
+guid: 6f88723dc4cff1244a752366ba37da35
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Peacock_Left_0
-    21300002: Peacock_Left_1
-    21300004: Peacock_Left_2
-    21300006: Peacock_Left_3
-    21300008: Peacock_Left_4
+    21300000: Seagull_Idle_0
+    21300002: Seagull_Idle_1
+    21300004: Seagull_Idle_2
+    21300006: Seagull_Idle_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -48,53 +47,43 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Peacock_Left_0
+    - name: Seagull_Idle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 960
-        height: 960
+        width: 480
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Peacock_Left_1
+    - name: Seagull_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 480
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Seagull_Idle_2
       rect:
         serializedVersion: 2
         x: 960
         y: 0
-        width: 960
-        height: 960
+        width: 480
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Peacock_Left_2
+    - name: Seagull_Idle_3
       rect:
         serializedVersion: 2
-        x: 1920
+        x: 1440
         y: 0
-        width: 960
-        height: 960
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Peacock_Left_3
-      rect:
-        serializedVersion: 2
-        x: 2880
-        y: 0
-        width: 960
-        height: 960
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Peacock_Left_4
-      rect:
-        serializedVersion: 2
-        x: 3840
-        y: 0
-        width: 960
-        height: 960
+        width: 480
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
