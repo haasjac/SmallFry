@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a488e0e050759242a6a1e46cfb87126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 0}
 --- !u!61 &6621109
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -900,7 +901,6 @@ MonoBehaviour:
   speed: .200000003
   jumpForce: 600
   interactRange: 1
-  leave_as_false: 0
 --- !u!212 &588509531
 SpriteRenderer:
   m_ObjectHideFlags: 0

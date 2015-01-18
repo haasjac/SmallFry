@@ -28,6 +28,11 @@ namespace SpaceJam
 				dialogueEngine = GameObject.Find("/Canvas/DialoguePanel").GetComponent<DialogueBehavior>();
 			talkIndicator = GameObject.Find("Fish/Exclamation");
 			talkIndicator.renderer.enabled = false;
+
+			if (Application.loadedLevelName.Equals ("Beach_Penguin") && !GlobalState.instance.talkedToPenguin) {
+				interactor = GameObject.Find("Penguin");
+				dialogueEngine.Talk(interactor.GetComponent<Actor>());
+			}
 		}
 		
 		// Update is called once per frame 
