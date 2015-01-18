@@ -25,3 +25,5 @@ EditorBuildSettings:
     path: Assets/_Scenes/Seagull_Game.unity
   - enabled: 1
     path: Assets/_Scenes/Cloud_win.unity
+  - enabled: 1
+    path: Assets/_Scenes/you_win.unity

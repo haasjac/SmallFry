@@ -67,6 +67,7 @@ namespace SpaceJam
 			case PlatypusState.CLOSE:
 				state = PlatypusState.DONE;
 				line = null;
+				Application.LoadLevel("you_win");
 				break;
 			}
 			
