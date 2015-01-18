@@ -159,6 +159,7 @@ GameObject:
   - 212: {fileID: 247540426}
   - 95: {fileID: 247540425}
   - 61: {fileID: 247540428}
+  - 114: {fileID: 247540429}
   m_Layer: 0
   m_Name: Penguin
   m_TagString: Interactable
@@ -229,6 +230,17 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_Size: {x: 4.80000019, y: 6.40000057}
   m_Center: {x: 0, y: 0}
+--- !u!114 &247540429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 247540424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac49f46bd33aedf468629ab94b449979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &296823499
 GameObject:
   m_ObjectHideFlags: 0
