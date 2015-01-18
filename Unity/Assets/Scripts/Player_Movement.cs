@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace SpaceJam
 {
@@ -21,7 +22,8 @@ namespace SpaceJam
 		//private Transform groundCheck;
 
 		// Use this for initialization
-		void Start () {
+		void Start()
+		{
 			canInteract = false;
 			interactor = null;
 			animator = this.GetComponent<Animator>();
@@ -33,6 +35,20 @@ namespace SpaceJam
 			if (Application.loadedLevelName.Equals ("Beach_Penguin") && !GlobalState.instance.talkedToPenguin) {
 				interactor = GameObject.Find("Penguin");
 				dialogueEngine.Talk(interactor.GetComponent<Actor>());
+			}
+
+			List<string> levels = new List<string>() {"Beach_Penguin", "Beach_Seagull", "Garden", "Desert"};
+
+			if (levels.Exists(x => x == Application.loadedLevelName)) {
+				if (GlobalState.instance.enterSide == GlobalState.ScreenSide.LEFT) {
+					Vector3 pos = transform.position;
+					pos.x  = -20;
+					transform.position = pos;
+				} else if (GlobalState.instance.enterSide == GlobalState.ScreenSide.RIGHT) {
+					Vector3 pos = transform.position;
+					pos.x  = 20;
+					transform.position = pos;
+				}
 			}
 
 			// TODO: Spawn on the correct side based on GlobalState.instance.enterSide
