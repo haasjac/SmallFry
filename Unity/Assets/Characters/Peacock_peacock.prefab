@@ -10,10 +10,8 @@ GameObject:
   - 4: {fileID: 449426}
   - 212: {fileID: 21249426}
   - 95: {fileID: 9549426}
-  - 114: {fileID: 11456662}
-  - 61: {fileID: 6156662}
   m_Layer: 0
-  m_Name: Peacock
+  m_Name: Peacock_peacock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,22 +24,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149426}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.69999981, y: -9.10000038, z: 0}
+  m_LocalPosition: {x: -7.69999981, y: -5.9000001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!61 &6156662
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 149426}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Size: {x: 9.59999943, y: 9.59999943}
-  m_Center: {x: 0, y: 0}
 --- !u!95 &9549426
 Animator:
   serializedVersion: 3
@@ -51,23 +38,12 @@ Animator:
   m_GameObject: {fileID: 149426}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ceaf63c7b0f2d5948b889b3c157c9afb, type: 2}
+  m_Controller: {fileID: 9100000, guid: 80f4bba64d71a054bac90f6d5d7ecc79, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11456662
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 149426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4a682e94ce7d8e4ba4bb1f448ddcf42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &21249426
 SpriteRenderer:
   m_ObjectHideFlags: 1

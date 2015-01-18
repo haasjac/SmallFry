@@ -9,6 +9,7 @@ namespace SpaceJam
 			IDLE,
 			INTRO_DIALOG_1,
 			INTRO_DIALOG_2,
+			INTRO_DIALOG_END,
 			INTRO_DIALOG_DONE,
 			AFTER_MG_IDLE,
 			AFTER_MG_DIALOG
@@ -49,11 +50,11 @@ namespace SpaceJam
 				line = "You know what would make you more beautiful? Do runway poses with me!";
 				break;
 			case PeacockState.INTRO_DIALOG_2:
-				state = PeacockState.INTRO_DIALOG_DONE;
+				state = PeacockState.INTRO_DIALOG_END;
 				line = "If you do enough, I'll show you how to do them anytime you want! Come on!";
 				break;
-			case PeacockState.INTRO_DIALOG_DONE:
-				state = PeacockState.AFTER_MG_IDLE;
+			case PeacockState.INTRO_DIALOG_END:
+				state = PeacockState.INTRO_DIALOG_DONE;
 				line = null;
 				Application.LoadLevel("Peacock_Game");
 				break;
