@@ -26,8 +26,6 @@ public class OstrichMG_controller : MonoBehaviour {
 		OstrichMG_controller.crouch_time = false;
 			if (countdown < 0.1f) {
 				OstrichMG_controller.crouch_time = true;
-
-				print("CROUCH TIME");
 				countdown = timer;
 		}
 	}

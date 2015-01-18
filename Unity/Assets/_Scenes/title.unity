@@ -417,6 +417,7 @@ GameObject:
   - 50: {fileID: 917794175}
   - 60: {fileID: 917794174}
   - 95: {fileID: 917794173}
+  - 61: {fileID: 917794180}
   - 61: {fileID: 917794179}
   m_Layer: 10
   m_Name: Fish
@@ -485,7 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9982c112970f604a953358f16c4dd9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: .200000003
+  speed: .0500000007
   jumpForce: 300
   interactRange: 1
   leave_as_false: 0
@@ -531,6 +532,18 @@ BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 917794172}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 4.80000019, y: 6.4000001}
+  m_Center: {x: 0, y: 0}
+--- !u!61 &917794180
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6110584, guid: 8e156b8fdef686547912f7949e6678f8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1065179843}
   m_GameObject: {fileID: 917794172}
   m_Enabled: 1
   m_Material: {fileID: 0}
@@ -689,6 +702,10 @@ Prefab:
     - target: {fileID: 11476234, guid: 8e156b8fdef686547912f7949e6678f8, type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476234, guid: 8e156b8fdef686547912f7949e6678f8, type: 2}
+      propertyPath: speed
+      value: .0500000007
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e156b8fdef686547912f7949e6678f8, type: 2}

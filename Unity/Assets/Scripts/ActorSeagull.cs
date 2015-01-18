@@ -37,7 +37,7 @@ namespace SpaceJam
 		
 		public override Sprite GetIcon()
 		{
-			return Resources.Load<Sprite>("Sprites/cumberbatch");
+			return Resources.Load<Sprite>("Sprites/seagull");
 		}
 		
 		public override string GetNextLine()

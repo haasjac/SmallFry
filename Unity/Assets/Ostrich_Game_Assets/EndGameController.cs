@@ -1,83 +1,71 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
+namespace SpaceJam{
 public class EndGameController : MonoBehaviour {
-		public float fadeSpeed = 1.5f;          // Speed that the screen fades to and from black.
 		public string lvl_name = "";
 		public string lvl_name_fail = "";
-		private bool sceneStarting = true;      // Whether or not the scene is still fading in.
+		private static Text scoreText;
+		private bool wincon;
+		private bool gamend;
 
-		void Awake ()
+		void Start()
 		{
-			// Set the texture so that it is the the size of the screen and covers it.
-			//guiTexture.pixelInset = new Rect(0f, 0f, Screen.width, Screen.height);
-		}
-		
+			scoreText = GameObject.Find("/Canvas/ENDText").GetComponent<Text>();
+			scoreText.text = "";
+			scoreText.color = Color.black;
+				}
+
+
+
 		void Update ()
 		{
-			// If the scene is starting...
-			if(sceneStarting)
-				// ... call the StartScene function.
-				StartScene();
+			if (gamend) 
+			{
+				if (wincon){
+				if (Input.GetButtonDown("X_button"))
+				{
+						Time.timeScale = 1;
+					Application.LoadLevel(lvl_name);
+				}}
+				else{
+					if (Input.GetButtonDown("X_button"))
+					{
+						Time.timeScale = 1;
+						Application.LoadLevel(lvl_name_fail);
+					}
+					if (Input.GetButtonDown("X_button"))
+					{
+						Time.timeScale = 1;
+						Application.LoadLevel(lvl_name);
+					}
+
+				}
+				
+			}
+				
+
 		}
 		
-		void OnCollisionEnter2D(Collision2D coll) {
+		void OnTriggerEnter2D(Collider2D coll) {
 			if (coll.gameObject.tag == "Player") 
 			{
-				OstrichMG_controller.win_condition = true;
-				EndScene();
+				print("PLAYER");
+				scoreText.text = "Congratulations! Press X to continue";
+				Time.timeScale = 0;
+				wincon = true;	
+				gamend = true;
 			}
 			else 
 			{
-				OstrichMG_controller.win_condition = false;
-				EndScene();
+				print ("OSTRICH");
+				scoreText.text = "Try again? Press X to try again or B to go back";
+				Time.timeScale = 0;
+				wincon = false;
+				gamend = true;
 			}
 		}
-		
-		void FadeToClear ()
-		{
-			// Lerp the colour of the texture between itself and transparent.
-			//guiTexture.color = Color.Lerp(guiTexture.color, Color.clear, fadeSpeed * Time.deltaTime);
-		}		
-		
-		void FadeToBlack ()
-		{
-			// Lerp the colour of the texture between itself and black.
-			//guiTexture.color = Color.Lerp(guiTexture.color, Color.black, fadeSpeed * Time.deltaTime);
-		}
-		
-		
-		void StartScene ()
-		{
-			// Fade the texture to clear.
-			FadeToClear();
-			
-			// If the texture is almost clear...
-			//if(guiTexture.color.a <= 0.05f)
-			{
-				// ... set the colour to clear and disable the GUITexture.
-				//guiTexture.color = Color.clear;
-				//guiTexture.enabled = false;
-				
-				// The scene is no longer starting.
-				sceneStarting = false;
-			}
-		}
-		
-		void EndScene ()
-		{
-			// Make sure the texture is enabled.
-			//guiTexture.enabled = true;
-			
-			// Start fading towards black.
-			FadeToBlack();
-			
-			// If the screen is almost black...
-			//if(guiTexture.color.a >= 0.95f)
-			// ... reload the level.
-			if (OstrichMG_controller.win_condition)
-				Application.LoadLevel (lvl_name);
-			else
-				Application.LoadLevel (lvl_name_fail);
-		}
+
 	}
+}
