@@ -11,12 +11,15 @@ public class OstrichMG_controller : MonoBehaviour {
 	private float countdown;
 	private Animator animator;
 	private Behaviour can_move;
+	SpriteRenderer Button;
 
 	// Use this for initialization
 	void Start () {
 		lose = false;
 		start = false;
 		OstrichMG_controller.start = false;
+		Button = GameObject.Find ("Sgt/Button").GetComponent<SpriteRenderer>();
+		Button.renderer.enabled = false;
 		animator = this.GetComponent<Animator>();
 		win_condition = false;
 		countdown = timer;
@@ -32,6 +35,11 @@ public class OstrichMG_controller : MonoBehaviour {
 				animator.SetInteger ("anim", 1);
 			else
 				animator.SetInteger ("anim", 0);
+			if (countdown < 0.5f) {
+				Button.renderer.enabled = true;
+			} else {
+				Button.renderer.enabled = false;
+			}
 			if (countdown < 0.1f) {
 				OstrichMG_controller.crouch_time = true;
 				countdown = timer;

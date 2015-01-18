@@ -52,7 +52,7 @@ namespace SpaceJam
                     break;
                 default:
                     state = PeacockState.CLOSE;
-                    line = "Now you can be FABULOUS!";
+                    line = "Now you can be FABULOUS using the D-Pad!";
                     break;
                 }
 			} else {
