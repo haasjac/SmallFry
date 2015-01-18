@@ -3,11 +3,12 @@ using System.Collections;
 
 namespace SpaceJam
 {
-	public class Player_Movement : MonoBehaviour
+	public class Player_Movement_Desert : MonoBehaviour
 	{
 		public float speed;
 		public float jumpForce;
 		public float interactRange = 1.0f;
+		public bool leave_as_false = false;
 		private float horiz = 0;
 
 		private bool grounded;
@@ -34,11 +35,14 @@ namespace SpaceJam
 		void Update ()
 		{
 			//grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
-
+			animator.SetInteger ("Direction", 1);
 			// Cannot receive inputs if we are talking to someone
 			if (!dialogueEngine || !dialogueEngine.IsTalking())
 			{
-				horiz = Input.GetAxis ("Horizontal");
+				if (leave_as_false && Input.GetAxis ("Horizontal") < 0)
+					horiz = 0;
+				else if (OstrichMG_controller.start)
+					horiz = Input.GetAxis ("Horizontal");
 				// Jumping
 				if (Input.GetButtonDown ("Jump") && grounded) {
 						jump = true;
@@ -48,23 +52,28 @@ namespace SpaceJam
 				// Crouching
 				if (Input.GetButton ("Hide") && grounded) {
 					animator.SetInteger ("Fish_anim", 2);
+					animator.SetInteger ("Direction", 1);
 				// Walking
-				} else if (Input.GetAxis ("Horizontal") != 0) {
+				} else if (Input.GetAxis ("Horizontal") != 0 && !leave_as_false) {
 					animator.SetInteger ("Fish_anim", 1);
+					animator.SetInteger ("Direction", 1);
 					Vector3 pos = transform.position;
 					pos.x += speed * horiz;
 					transform.position = pos;
 				// Idle
-				}else {
+				} else if (Input.GetAxis ("Horizontal") > 0 && OstrichMG_controller.start) {
+					animator.SetInteger ("Fish_anim", 1);
+					animator.SetInteger ("Direction", 1);
+					Vector3 pos = transform.position;
+					pos.x += speed * horiz;
+					transform.position = pos;
+					// Idle
+				} else {
 					animator.SetInteger ("Fish_anim", 0);
+					animator.SetInteger ("Direction", 1);
 				}
 
-				// Facing
-				if (Input.GetAxis ("Horizontal") > 0) {
-					animator.SetInteger ("Direction", 1);
-				} else {
-					animator.SetInteger ("Direction", 0);
-				}
+					
 
 				// Interaction mechanics
 				if (Input.GetButtonDown ("Interact") && canInteract) {
