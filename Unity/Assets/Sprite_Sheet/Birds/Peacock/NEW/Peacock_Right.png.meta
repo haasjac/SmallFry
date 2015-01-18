@@ -1,14 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 62d99cb11d0e449649e9f44ebf1c4592
-TextureImporter:
-  fileIDToRecycleName: {}
-  serializedVersion: 2
-  mipmaps:
-    mipMapMode: 0
-    enableMipMap: 0
-=======
-guid: 4b0d02046a77a314996ca2b65e925974
 TextureImporter:
   fileIDToRecycleName:
     21300000: Peacock_Right_0
@@ -19,8 +10,7 @@ TextureImporter:
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
->>>>>>> cd2dc301f39d66b54937267e2cdd0f9ddbf03dcc
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -40,15 +30,6 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-<<<<<<< HEAD
-    aniso: -1
-    mipBias: -1
-    wrapMode: -1
-  nPOTScale: 0
-  lightmap: 0
-  compressionQuality: 50
-  spriteMode: 1
-=======
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -56,7 +37,6 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
->>>>>>> cd2dc301f39d66b54937267e2cdd0f9ddbf03dcc
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -67,9 +47,6 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-<<<<<<< HEAD
-    sprites: []
-=======
     sprites:
     - name: Peacock_Right_0
       rect:
@@ -121,6 +98,5 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
->>>>>>> cd2dc301f39d66b54937267e2cdd0f9ddbf03dcc
   spritePackingTag: 
   userData: 
