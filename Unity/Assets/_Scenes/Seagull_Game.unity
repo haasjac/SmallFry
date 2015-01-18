@@ -994,7 +994,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Move left and right and jump using
+  m_Text: 'Move left and right, and jump using
 
     to help the seagull retrieve his... er... "Nourishment Acquiring Apparatus"!'
 --- !u!222 &500780080
