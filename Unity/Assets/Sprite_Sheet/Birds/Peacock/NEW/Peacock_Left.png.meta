@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 62d99cb11d0e449649e9f44ebf1c4592
+guid: 6f269d3f3c0efc44b979000c8fe79768
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Peacock_Right_0
-    21300002: Peacock_Right_1
-    21300004: Peacock_Right_2
-    21300006: Peacock_Right_3
-    21300008: Peacock_Right_4
+    21300000: Peacock_Left_0
+    21300002: Peacock_Left_1
+    21300004: Peacock_Left_2
+    21300006: Peacock_Left_3
+    21300008: Peacock_Left_4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -48,7 +48,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Peacock_Right_0
+    - name: Peacock_Left_0
       rect:
         serializedVersion: 2
         x: 0
@@ -58,7 +58,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Peacock_Right_1
+    - name: Peacock_Left_1
       rect:
         serializedVersion: 2
         x: 960
@@ -68,7 +68,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Peacock_Right_2
+    - name: Peacock_Left_2
       rect:
         serializedVersion: 2
         x: 1920
@@ -78,7 +78,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Peacock_Right_3
+    - name: Peacock_Left_3
       rect:
         serializedVersion: 2
         x: 2880
@@ -88,7 +88,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Peacock_Right_4
+    - name: Peacock_Left_4
       rect:
         serializedVersion: 2
         x: 3840
