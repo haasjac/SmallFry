@@ -11,27 +11,30 @@ namespace SpaceJam
 			INTRO_DIALOG_2,
 			INTRO_DIALOG_END,
 			INTRO_DIALOG_DONE,
-			AFTER_MG_IDLE,
-			AFTER_MG_DIALOG
+			AFTER_MG_IDLE
 		}
 
 		PeacockState state;
 
 		// Use this for initialization
-		void Start () {
+		void Start()
+		{
 			state = PeacockState.IDLE;
 		}
 		
 		// Update is called once per frame
-		void Update () {
+		void Update()
+		{
 		
 		}
 
-		public override string GetName() {
+		public override string GetName()
+		{
 			return "Penelope Peacock";
 		}
 		
-		public override Sprite GetIcon() {
+		public override Sprite GetIcon()
+		{
 			return Resources.Load<Sprite>("Sprites/cumberbatch");
 		}
 		
