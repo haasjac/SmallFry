@@ -8,7 +8,6 @@ namespace SpaceJam
 		public float speed;
 		public float jumpForce;
 		public float interactRange = 1.0f;
-		public bool leave_as_false = false;
 		private float horiz = 0;
 
 		private bool grounded;
@@ -39,10 +38,7 @@ namespace SpaceJam
 			// Cannot receive inputs if we are talking to someone
 			if (!dialogueEngine || !dialogueEngine.IsTalking())
 			{
-				if (leave_as_false && Input.GetAxis ("Horizontal") < 0)
-					horiz = 0;
-				else 
-					horiz = Input.GetAxis ("Horizontal");
+				horiz = Input.GetAxis ("Horizontal");
 				// Jumping
 				if (Input.GetButtonDown ("Jump") && grounded) {
 						jump = true;
@@ -53,19 +49,13 @@ namespace SpaceJam
 				if (Input.GetButton ("Hide") && grounded) {
 					animator.SetInteger ("Fish_anim", 2);
 				// Walking
-				} else if (Input.GetAxis ("Horizontal") != 0 && !leave_as_false) {
+				} else if (Input.GetAxis ("Horizontal") != 0) {
 					animator.SetInteger ("Fish_anim", 1);
 					Vector3 pos = transform.position;
 					pos.x += speed * horiz;
 					transform.position = pos;
 				// Idle
-				} else if (Input.GetAxis ("Horizontal") > 0) {
-					animator.SetInteger ("Fish_anim", 1);
-					Vector3 pos = transform.position;
-					pos.x += speed * horiz;
-					transform.position = pos;
-					// Idle
-				} else {
+				}else {
 					animator.SetInteger ("Fish_anim", 0);
 				}
 

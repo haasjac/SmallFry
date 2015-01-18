@@ -31,6 +31,7 @@ namespace SpaceJam
 		public bool seagullGameComplete;	// Have we completed the Seagull minigame?
 		public bool talkedToSeagull;		// Have we talked to the Seagull after completing their game?
 		public bool talkedToPenguin;		// Have we talked to the Penguin for the first time?
+		public bool talkedToWhale;			// Have we talked to the Whale king?
 		public bool staircaseUnlocked;		// Have we talked to the Penguin after finishing all minigames?
 		public bool fishingRodGet;			// Did we pick up the fishing rod in the seagull game?
 		public ScreenSide exitSide;			// Which side of the screen did we use to leave the last scene?

@@ -5,6 +5,7 @@ namespace SpaceJam
 {
 	public class ActorPeacock : Actor
 	{
+		public AudioClip clip;
 		enum PeacockState {
 			IDLE,
 			INTRO_DIALOG_1,
@@ -46,6 +47,8 @@ namespace SpaceJam
 			{
 			case PeacockState.IDLE:
 				state = PeacockState.INTRO_DIALOG_1;
+				AudioSource.PlayClipAtPoint(clip, new Vector3(0,0,0));
+
 				line = "Oh em GEEE, I thought you were one of those hideous platypuseses!";
 				break;
 			case PeacockState.INTRO_DIALOG_1:

@@ -5,6 +5,8 @@ namespace SpaceJam
 {
 	public class ActorSeagull : Actor
 	{
+		public AudioClip clip;
+
 		enum SeagullState {
 			IDLE,
 			DIALOG_1,
@@ -61,6 +63,7 @@ namespace SpaceJam
 				switch (state) {
 				case SeagullState.IDLE:
 					state = SeagullState.DIALOG_1;
+					AudioSource.PlayClipAtPoint(clip, new Vector3(0,0,0));
 					line = "Fufufufu... What have we here?";
 					break;
 				case SeagullState.DIALOG_1:
