@@ -110,7 +110,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: ccf2d5dfea6ee35458863ba517c5c680, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6ea86cebff69ab144a407863b5c75242, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &384175780
 Transform:
@@ -206,6 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeSpeed: 1.5
   lvl_name: Beach_Penguin
+  rightSide: 0
 --- !u!1 &839697292
 GameObject:
   m_ObjectHideFlags: 0
