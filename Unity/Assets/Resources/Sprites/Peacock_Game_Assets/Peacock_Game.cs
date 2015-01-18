@@ -124,24 +124,25 @@ public class Peacock_Game : MonoBehaviour {
 			smashPanel.alpha = 0.0f;
 			buttonText.color = Color.black;
 			if (mash > 100)
-				buttonText.text = "Yippie kay ay";
+				buttonText.text = "You are amazing, darling!";
 			else if (mash > 75)
-				buttonText.text = "Yee haw";
+				buttonText.text = "You're a natural!";
 			else if (mash > 50)
-				buttonText.text = "ok";
+				buttonText.text = "You're almost there, try again!";
 			else if (mash > 25)
-				buttonText.text = "meh";
+				buttonText.text = "At least you've got a great personality!";
 			else 
-				buttonText.text = "You suck";
+				buttonText.text = "Umm...";
 
-			if (mash > 25)
+			if (mash > 75)
 					GlobalState.instance.peacockGameComplete = true;
 
-			buttonText.text += "\r\nPress X to try again\r\nPress A to leave";
+			buttonText.text += "\r\nPress X to try again\r\nPress B to leave";
 			cooldown += Time.deltaTime;
 			if (cooldown > 1f) {
 				if (Input.GetButtonDown ("X_button")) {
-					start = false;
+					buttonText.text = "";
+					start = true;
 					go = false;
 					go_time = 4f;
 					game_time = 0;
@@ -149,7 +150,7 @@ public class Peacock_Game : MonoBehaviour {
 					mash = 0;
 					button = 0;
 				}
-				if (Input.GetButtonDown ("A_button")) {
+				if (Input.GetButtonDown ("B_button")) {
 					Application.LoadLevel("Garden");
 				}
 			}

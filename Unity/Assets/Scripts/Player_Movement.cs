@@ -86,7 +86,7 @@ namespace SpaceJam
 				}
 
 				// Facing
-				if (Input.GetAxis ("Horizontal") > 0) {
+				if (Input.GetAxis ("Horizontal") >= 0) {
 					animator.SetInteger ("Direction", 1);
 				} else {
 					animator.SetInteger ("Direction", 0);
