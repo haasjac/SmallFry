@@ -49,6 +49,7 @@ public class EndGameController : MonoBehaviour {
 				OstrichMG_controller.start = false;
 				OstrichMG_controller.lose = true;
 				print("PLAYER");
+				GlobalState.instance.ostrichGameComplete = true;
 				scoreText.text = "Congratulations! Press X to continue";
 				//Time.timeScale = 0;
 				wincon = true;	

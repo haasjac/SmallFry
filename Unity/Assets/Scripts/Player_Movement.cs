@@ -8,8 +8,9 @@ namespace SpaceJam
 		public float speed;
 		public float jumpForce;
 		public float interactRange = 1.0f;
-		private float horiz = 0;
+		public static bool frozen = false;
 
+		private float horiz = 0;
 		private bool grounded;
 		private bool jump;
 		private bool canInteract;
@@ -33,6 +34,8 @@ namespace SpaceJam
 				interactor = GameObject.Find("Penguin");
 				dialogueEngine.Talk(interactor.GetComponent<Actor>());
 			}
+
+			// TODO: Spawn on the correct side based on GlobalState.instance.enterSide
 		}
 		
 		// Update is called once per frame 
@@ -41,7 +44,7 @@ namespace SpaceJam
 			//grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
 
 			// Cannot receive inputs if we are talking to someone
-			if (!dialogueEngine || !dialogueEngine.IsTalking())
+			if (!frozen && (!dialogueEngine || !dialogueEngine.IsTalking()))
 			{
 				horiz = Input.GetAxis ("Horizontal");
 				// Jumping
@@ -50,8 +53,8 @@ namespace SpaceJam
 						grounded = false;
 				}
 
-				// Crouching
-				if (Input.GetButton ("Hide") && grounded) {
+				// Crouching - Can only crouch if we have beaten or are currently playing the ostrich game
+				if (Input.GetButton ("Hide") && grounded && (GlobalState.instance.ostrichGameComplete || Application.loadedLevelName.Equals("Ostrich_Game"))) {
 					animator.SetInteger ("Fish_anim", 2);
 				// Walking
 				} else if (!grounded) {
@@ -64,8 +67,17 @@ namespace SpaceJam
 					Vector3 pos = transform.position;
 					pos.x += speed * horiz;
 					transform.position = pos;
+				// Posing
+				} else if (Input.GetAxis("Pose_vert") > 0 && GlobalState.instance.peacockGameComplete) {
+					animator.SetInteger("Fish_anim", 5);
+				} else if (Input.GetAxis("Pose_vert") < 0 && GlobalState.instance.peacockGameComplete) {
+					animator.SetInteger("Fish_anim", 6);
+				} else if (Input.GetAxis("Pose_horiz") > 0 && GlobalState.instance.peacockGameComplete) {
+					animator.SetInteger("Fish_anim", 7);
+				} else if (Input.GetAxis("Pose_horiz") < 0 && GlobalState.instance.peacockGameComplete) {
+					animator.SetInteger("Fish_anim", 8);
 				// Idle
-				}else {
+				} else {
 					animator.SetInteger ("Fish_anim", 0);
 				}
 

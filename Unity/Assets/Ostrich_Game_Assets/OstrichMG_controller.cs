@@ -9,7 +9,6 @@ public class OstrichMG_controller : MonoBehaviour {
 	public float timer;
 	public static bool win_condition;
 	private float countdown;
-	private Text scoreText;
 	private Animator animator;
 	private Behaviour can_move;
 
@@ -21,24 +20,11 @@ public class OstrichMG_controller : MonoBehaviour {
 		animator = this.GetComponent<Animator>();
 		win_condition = false;
 		countdown = timer;
-		scoreText = GameObject.Find("/Canvas/CText").GetComponent<Text>();
-		scoreText.text = "";
-		scoreText.color = Color.black;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (!OstrichMG_controller.start && !lose) {
-			scoreText.text = "Press X to Start\r\n Press B to Quit";
-			if (Input.GetButtonDown("X_button"))
-			    OstrichMG_controller.start = true;
-			if (Input.GetButtonDown("B_button"))
-			{
-				Application.LoadLevel("Desert");
-			}
-		} else {
-			scoreText.text = "";
-			//scoreText.text = "Time until hiding: " + countdown;
+		if (OstrichMG_controller.start && !lose) {
 			countdown -= Time.deltaTime;
 			//print (countdown);
 			OstrichMG_controller.crouch_time = false;

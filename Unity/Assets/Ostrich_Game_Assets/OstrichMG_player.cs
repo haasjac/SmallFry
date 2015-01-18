@@ -37,7 +37,7 @@ namespace SpaceJam
 		if (hp < 1) {
 				OstrichMG_controller.lose = true;
 				OstrichMG_controller.start = false;
-				scoreText.text = "You gotta hide! Press X";
+				scoreText.text = "You gotta hide! Press X to restart";
 				if (Input.GetButtonDown("X_button"))
 				    {
 					Application.LoadLevel("Ostrich_Game");
