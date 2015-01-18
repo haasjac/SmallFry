@@ -19,6 +19,7 @@ namespace SpaceJam
 			RAND_1_END,
 			RAND_2_PREP,
 			RAND_2_END,
+			FINAL_END,
 			CLOSE,
 			FINAL_1
 		}
@@ -28,7 +29,7 @@ namespace SpaceJam
 		// Use this for initialization
 		void Start()
 		{
-			state = PenguinState.RAND_1_PREP;
+			state = PenguinState.RAND_2_PREP;
 		}
 		
 		// Update is called once per frame
@@ -54,7 +55,7 @@ namespace SpaceJam
 			if (!GlobalState.instance.talkedToPenguin) {
 				switch (state) {
 				case PenguinState.INTRO_2:
-					AudioSource.PlayClipAtPoint(clip, new Vector3(0,0,0));
+					AudioSource.PlayClipAtPoint (clip, new Vector3 (0, 0, 0));
 
 					state = PenguinState.INTRO_3;
 					line = "You do know you need water to survive, don't you? You're lucky I found you here, and had a spare undiving helmet.";
@@ -77,16 +78,40 @@ namespace SpaceJam
 					line = "My oh my... Another fish, washed up on the shore.";
 					break;
 				}
-			} else if (GlobalState.instance.allGamesComplete) {
-				switch(state) {
-				case PenguinState.FINAL_1:
+			} else if (GlobalState.instance.peacockGameComplete && !GlobalState.instance.pengPeacock) {
+				line = "Ahh, I see you have talked to the peacocks. They sure know how to strike a pose.";
+				GlobalState.instance.pengPeacock = true;
+				if ((GlobalState.instance.ostrichGameComplete && !GlobalState.instance.pengOstrich) ||
+				    (GlobalState.instance.seagullGameComplete && !GlobalState.instance.pengSeagull) ||
+				    (GlobalState.instance.allGamesComplete))
+					state = PenguinState.IDLE;
+				else
 					state = PenguinState.CLOSE;
+			} else if (GlobalState.instance.ostrichGameComplete && !GlobalState.instance.pengOstrich) {
+				line = "Looks like you learned from the ostriches and their drill sergeant. Sometimes, hiding is the smartest action.";
+				GlobalState.instance.pengOstrich = true;
+				if ((GlobalState.instance.seagullGameComplete && !GlobalState.instance.pengSeagull) ||
+					(GlobalState.instance.allGamesComplete))
+					state = PenguinState.IDLE;
+				else
+					state = PenguinState.CLOSE;
+			} else if (GlobalState.instance.seagullGameComplete && !GlobalState.instance.pengSeagull) {
+				line = "Oho, it seems you've found the seagulls. Did you know they are vegetarians?";
+				GlobalState.instance.pengSeagull = true;
+				if (GlobalState.instance.allGamesComplete)
+					state = PenguinState.IDLE;
+				else
+					state = PenguinState.CLOSE;
+			} else if (GlobalState.instance.allGamesComplete) {
+				switch (state) {
+				case PenguinState.FINAL_1:
+					state = PenguinState.FINAL_END;
 					line = "Go ahead and use that staircase over there to reach the Castle of the Bird King.";
 					break;
-				case PenguinState.CLOSE:
+				case PenguinState.FINAL_END:
 					GlobalState.instance.staircaseUnlocked = true;
 					state = PenguinState.RAND_1_PREP;
-					Application.LoadLevel("Cloud_win");
+					Application.LoadLevel ("Cloud_win");
 					line = null;
 					break;
 				default:
@@ -109,10 +134,24 @@ namespace SpaceJam
 					line = null;
 					break;
 				case PenguinState.RAND_2_PREP:
-					state = PenguinState.RAND_2_END;
-					line = "Why are you still here? Don't be such a platypus - go talk to the other birds!";
+					state = PenguinState.CLOSE;
+					line = "Why are you still here? Don't be such a platypus - go talk to the";
+					if (!GlobalState.instance.pengPeacock && GlobalState.instance.pengOstrich && GlobalState.instance.pengSeagull)
+						line += " peacocks!";
+					else if (GlobalState.instance.pengPeacock && !GlobalState.instance.pengOstrich && GlobalState.instance.pengSeagull)
+						line += " ostriches!";
+					else if (GlobalState.instance.pengPeacock && GlobalState.instance.pengOstrich && !GlobalState.instance.pengSeagull)
+						line += " seagulls!";
+					else if (!GlobalState.instance.pengPeacock && !GlobalState.instance.pengOstrich && GlobalState.instance.pengSeagull)
+						line += " peacocks and ostriches!";
+					else if (GlobalState.instance.pengPeacock && !GlobalState.instance.pengOstrich && !GlobalState.instance.pengSeagull)
+						line += " ostriches and seagulls!";
+					else if (!GlobalState.instance.pengPeacock && GlobalState.instance.pengOstrich && !GlobalState.instance.pengSeagull)
+						line += " peacocks and seagulls!";
+					else if (!GlobalState.instance.pengPeacock && !GlobalState.instance.pengOstrich && !GlobalState.instance.pengSeagull)
+						line += " peacocks, ostriches and seagulls!";
 					break;
-				case PenguinState.RAND_2_END:
+				case PenguinState.CLOSE:
 					state = PenguinState.RAND_2_PREP;
 					line = null;
 					break;
