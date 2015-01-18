@@ -5,6 +5,7 @@ using System.Collections;
 public class OstrichMG_controller : MonoBehaviour {
 	public static bool crouch_time;
 	public static bool start = false;
+	public static bool lose = false;
 	public float timer;
 	public static bool win_condition;
 	private float countdown;
@@ -14,6 +15,9 @@ public class OstrichMG_controller : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		lose = false;
+		start = false;
+		OstrichMG_controller.start = false;
 		animator = this.GetComponent<Animator>();
 		win_condition = false;
 		countdown = timer;
@@ -24,12 +28,17 @@ public class OstrichMG_controller : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!OstrichMG_controller.start) {
-			scoreText.text = "Press X to Start";
+		if (!OstrichMG_controller.start && !lose) {
+			scoreText.text = "Press X to Start\r\n Press B to Quit";
 			if (Input.GetButtonDown("X_button"))
 			    OstrichMG_controller.start = true;
+			if (Input.GetButtonDown("B_button"))
+			{
+				Application.LoadLevel("Desert");
+			}
 		} else {
-			scoreText.text = "Time until hiding: " + countdown;
+			scoreText.text = "";
+			//scoreText.text = "Time until hiding: " + countdown;
 			countdown -= Time.deltaTime;
 			//print (countdown);
 			OstrichMG_controller.crouch_time = false;
