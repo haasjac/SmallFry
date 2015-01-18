@@ -10,7 +10,7 @@ public class respawn : MonoBehaviour {
 		x = transform.position.x;
 		y = transform.position.y;
 	}
-	void OnCollisionEnter2D(Collision2D coll) {
+	void OnCollisionStay2D(Collision2D coll) {
 		if (coll.gameObject.tag == "Respawn") {
 			Vector3 pos = new Vector3(x,y,0f);
 			transform.position = pos;
