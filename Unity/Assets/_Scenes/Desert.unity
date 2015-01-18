@@ -775,7 +775,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1417686457}
   - 212: {fileID: 1417686456}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Exclamation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -830,7 +830,7 @@ GameObject:
   - 50: {fileID: 1455270656}
   - 60: {fileID: 1455270655}
   - 95: {fileID: 1455270654}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fish
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -905,7 +905,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 692458786}
   m_GameObject: {fileID: 1455270652}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9982c112970f604a953358f16c4dd9f, type: 3}
   m_Name: 
@@ -913,6 +913,8 @@ MonoBehaviour:
   speed: .200000003
   jumpForce: 300
   interactRange: 1
+  leave_as_false: 0
+  horiz: 0
 --- !u!212 &1455270658
 SpriteRenderer:
   m_ObjectHideFlags: 0
