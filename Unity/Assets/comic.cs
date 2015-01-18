@@ -1,18 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class pose : MonoBehaviour {
-
-	private Animator animator;
-
+public class comic : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		animator = this.GetComponent<Animator>();
+	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		animator.SetInteger ("Fish_anim", 2);
+		if (Input.GetButtonDown ("X_button")) {
+			Application.LoadLevel("Beach_Penguin");
+		}
 	}
 }

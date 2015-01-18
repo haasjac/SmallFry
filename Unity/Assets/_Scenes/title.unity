@@ -488,6 +488,8 @@ MonoBehaviour:
   speed: .200000003
   jumpForce: 300
   interactRange: 1
+  leave_as_false: 0
+  horiz: 0
 --- !u!212 &917794177
 SpriteRenderer:
   m_ObjectHideFlags: 0
