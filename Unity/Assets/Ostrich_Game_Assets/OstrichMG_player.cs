@@ -35,6 +35,7 @@ namespace SpaceJam
 			playersPOS = transform.position.x;
 
 		if (hp < 1) {
+				OstrichMG_controller.start = false;
 				scoreText.text = "Try again? Press X to try again or B to go back";
 				if (Input.GetButtonDown("X_button"))
 				    {

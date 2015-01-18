@@ -5,6 +5,7 @@ namespace SpaceJam
 {
 	public class ActorOstrich : Actor
 	{
+		public AudioClip clip;
 		enum OstrichState {
 			IDLE,
 			DIALOG_1,
@@ -79,6 +80,7 @@ namespace SpaceJam
 			{
 			case OstrichState.IDLE:
 				state = OstrichState.DIALOG_1;
+				AudioSource.PlayClipAtPoint(clip, new Vector3(0,0,0));
 				line = "Shh! Get down and hide, or the sergeant will find us!";
 				break;
 			case OstrichState.DIALOG_1:

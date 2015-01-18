@@ -10,6 +10,7 @@ public class OstrichMG_controller : MonoBehaviour {
 	private float countdown;
 	private Text scoreText;
 	private Animator animator;
+	private Behaviour can_move;
 
 	// Use this for initialization
 	void Start () {

@@ -48,7 +48,7 @@ public class EndGameController : MonoBehaviour {
 
 		}
 		
-		void OnTriggerEnter2D(Collider2D coll) {
+		void OnTriggerStay2D(Collider2D coll) {
 			if (coll.gameObject.tag == "Player") 
 			{
 				OstrichMG_controller.start = false;
@@ -58,8 +58,9 @@ public class EndGameController : MonoBehaviour {
 				wincon = true;	
 				gamend = true;
 			}
-			else 
+			else if (coll.gameObject.tag == "AI") 
 			{
+				OstrichMG_controller.start = false;
 				print ("OSTRICH");
 				scoreText.text = "Try again? Press X to try again or B to go back";
 				Time.timeScale = 0;
