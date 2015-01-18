@@ -56,6 +56,12 @@ namespace SpaceJam
 				// Crouching - Can only crouch if we have beaten or are currently playing the ostrich game
 				if (Input.GetButton ("Hide") && grounded && (GlobalState.instance.ostrichGameComplete || Application.loadedLevelName.Equals("Ostrich_Game"))) {
 					animator.SetInteger ("Fish_anim", 2);
+				// Walking
+				} else if (Input.GetAxis ("Horizontal") != 0) {
+					animator.SetInteger ("Fish_anim", 1);
+					Vector3 pos = transform.position;
+					pos.x += speed * horiz;
+					transform.position = pos;
 				// Posing
 				} else if (Input.GetAxis("Pose_vert") > 0 && GlobalState.instance.peacockGameComplete) {
 					animator.SetInteger("Fish_anim", 5);
@@ -65,12 +71,6 @@ namespace SpaceJam
 					animator.SetInteger("Fish_anim", 7);
 				} else if (Input.GetAxis("Pose_horiz") < 0 && GlobalState.instance.peacockGameComplete) {
 					animator.SetInteger("Fish_anim", 8);
-				// Walking
-				} else if (Input.GetAxis ("Horizontal") != 0) {
-					animator.SetInteger ("Fish_anim", 1);
-					Vector3 pos = transform.position;
-					pos.x += speed * horiz;
-					transform.position = pos;
 				// Idle
 				} else {
 					animator.SetInteger ("Fish_anim", 0);
