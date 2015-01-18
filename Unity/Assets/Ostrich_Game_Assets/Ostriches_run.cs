@@ -36,13 +36,13 @@ public class Ostriches_run : MonoBehaviour {
 	
 			if ( transform.position.x > 5) {
 					Vector3 pos = transform.position;
-					pos.x += UnityEngine.Random.Range (3, 6) * speed;
+					pos.x += UnityEngine.Random.Range (0,3) * speed;
 					transform.position = pos;
 			} 
 
 			else if ( transform.position.x < 5 ) {
 					Vector3 pos = transform.position;
-					pos.x += UnityEngine.Random.Range (0, 3) * speed;
+					pos.x += UnityEngine.Random.Range (0,3) * speed;
 					transform.position = pos;	
 			}
 

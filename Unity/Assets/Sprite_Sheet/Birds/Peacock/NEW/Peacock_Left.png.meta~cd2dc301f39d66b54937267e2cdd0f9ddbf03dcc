@@ -1,11 +1,12 @@
 fileFormatVersion: 2
-guid: 111aee6847619b340b58d018c6186373
+guid: 6f269d3f3c0efc44b979000c8fe79768
 TextureImporter:
   fileIDToRecycleName:
-    21300000: HummingBird_Right_0
-    21300002: HummingBird_Right_1
-    21300004: HummingBird_Right_2
-    21300006: HummingBird_Right_3
+    21300000: Peacock_Left_0
+    21300002: Peacock_Left_1
+    21300004: Peacock_Left_2
+    21300006: Peacock_Left_3
+    21300008: Peacock_Left_4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -47,43 +48,53 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: HummingBird_Right_0
+    - name: Peacock_Left_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 380
-        height: 380
+        width: 960
+        height: 960
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: HummingBird_Right_1
+    - name: Peacock_Left_1
       rect:
         serializedVersion: 2
-        x: 380
+        x: 960
         y: 0
-        width: 380
-        height: 380
+        width: 960
+        height: 960
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: HummingBird_Right_2
+    - name: Peacock_Left_2
       rect:
         serializedVersion: 2
-        x: 760
+        x: 1920
         y: 0
-        width: 380
-        height: 380
+        width: 960
+        height: 960
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: HummingBird_Right_3
+    - name: Peacock_Left_3
       rect:
         serializedVersion: 2
-        x: 1140
+        x: 2880
         y: 0
-        width: 380
-        height: 380
+        width: 960
+        height: 960
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Peacock_Left_4
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 960
+        height: 960
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
