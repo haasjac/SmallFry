@@ -32,9 +32,10 @@ namespace SpaceJam
 		// Update is called once per frame 
 		void Update () {
 			scoreText.text = "Lives left:" + hp;
+			playersPOS = transform.position.x;
 
 		if (hp < 1) {
-				scoreText.text = "Try again? \n Press X to try again\n Press B to go back";
+				scoreText.text = "Try again? Press X to try again or B to go back";
 				if (Input.GetButtonDown("X_button"))
 				    {
 					Application.LoadLevel("Ostrich_Game");
