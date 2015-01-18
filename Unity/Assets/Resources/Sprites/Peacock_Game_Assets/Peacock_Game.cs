@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
+namespace SpaceJam {
 public class Peacock_Game : MonoBehaviour {
 
 	public float decrease_time = 0.25f;
@@ -133,6 +134,9 @@ public class Peacock_Game : MonoBehaviour {
 			else 
 				buttonText.text = "You suck";
 
+			if (mash > 25)
+					GlobalState.instance.peacockGameComplete = true;
+
 			buttonText.text += "\r\nPress X to try again\r\nPress A to leave";
 			cooldown += Time.deltaTime;
 			if (cooldown > 1f) {
@@ -151,4 +155,5 @@ public class Peacock_Game : MonoBehaviour {
 			}
 		}
 	}
+}
 }
