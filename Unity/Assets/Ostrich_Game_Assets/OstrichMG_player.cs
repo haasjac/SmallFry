@@ -13,8 +13,8 @@ namespace SpaceJam
 		public float Accelerate;
 		public static float playersPOS;
 		public static bool player_is_safe;
-		public  float Wait_time;
-		private float wait_time;
+		//public  float Wait_time;
+		//private float wait_time;
 		public static bool move_enable;
 		public int hp;
 		private static Text scoreText;
@@ -22,7 +22,7 @@ namespace SpaceJam
 			
 		// Use this for initialization
 		void Start () {
-			wait_time = 0;
+			//wait_time = 0;
 			scoreText = GameObject.Find("/Canvas/HPText").GetComponent<Text>();
 			scoreText.text = "";
 			scoreText.color = Color.black;
