@@ -30,7 +30,7 @@ GameObject:
   - 60: {fileID: 6076234}
   - 95: {fileID: 9576234}
   m_Layer: 10
-  m_Name: Fish
+  m_Name: Fish_peacock
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
