@@ -297,6 +297,10 @@ Prefab:
       propertyPath: leave_as_false
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11476234, guid: 8e156b8fdef686547912f7949e6678f8, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e156b8fdef686547912f7949e6678f8, type: 2}
   m_RootGameObject: {fileID: 1126454791}
