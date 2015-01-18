@@ -46,7 +46,7 @@ namespace SpaceJam
 				}
 						}
 		player_is_safe = false;
-		if (Input.GetAxis ("Vertical") < 0) {	
+		if (Input.GetButton("Hide")) {	
 						player_is_safe = true;
 						Accelerate = 0;
 						//ANIMATION running -> Hiding
