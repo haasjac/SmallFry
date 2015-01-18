@@ -111,7 +111,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 32
     m_Alignment: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -159,6 +159,7 @@ GameObject:
   - 212: {fileID: 247540426}
   - 95: {fileID: 247540425}
   - 61: {fileID: 247540428}
+  - 114: {fileID: 247540429}
   m_Layer: 0
   m_Name: Penguin
   m_TagString: Interactable
@@ -229,6 +230,17 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_Size: {x: 4.80000019, y: 6.40000057}
   m_Center: {x: 0, y: 0}
+--- !u!114 &247540429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 247540424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac49f46bd33aedf468629ab94b449979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &296823499
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,7 +980,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -987,10 +999,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: .200000003
-  jumpForce: 300
+  jumpForce: 600
   interactRange: 1
   leave_as_false: 0
-  horiz: 0
 --- !u!212 &877147361
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1483,6 +1494,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11499704, guid: 3a2080cc09163bb48849e80cce185268, type: 2}
+      propertyPath: m_FontData.m_MaxSize
+      value: 32
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a2080cc09163bb48849e80cce185268, type: 2}
   m_RootGameObject: {fileID: 649803553}
@@ -1525,7 +1540,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b6558aff3d5e5184887877d34e5e751f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 80fcf679f603e794bb3bae875a6f6c4a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &2009187327
 Transform:
@@ -1534,8 +1549,8 @@ Transform:
   m_PrefabInternal: {fileID: 406319659}
   m_GameObject: {fileID: 2009187325}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.36999989, z: 0}
-  m_LocalScale: {x: 3.33333325, y: 3.33333325, z: 1}
+  m_LocalPosition: {x: 0, y: 3.74000001, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 877147356}
   m_RootOrder: 0

@@ -9,14 +9,14 @@ namespace SpaceJam
 		public float jumpForce;
 		public float interactRange = 1.0f;
 		public bool leave_as_false = false;
-		public float horiz = 0;
+		private float horiz = 0;
 
 		private bool grounded;
 		private bool jump;
 		private bool canInteract;
 		GameObject interactor;
 		private Animator animator;
-		DialogueBehavior dialogueEngine;
+		DialogueBehavior dialogueEngine = null;
 		GameObject talkIndicator;
 		//private Transform groundCheck;
 
@@ -25,7 +25,8 @@ namespace SpaceJam
 			canInteract = false;
 			interactor = null;
 			animator = this.GetComponent<Animator>();
-			dialogueEngine = GameObject.Find("DialoguePanel").GetComponent<DialogueBehavior>();
+			if (GameObject.Find("/Canvas/DialoguePanel"))
+				dialogueEngine = GameObject.Find("/Canvas/DialoguePanel").GetComponent<DialogueBehavior>();
 			talkIndicator = GameObject.Find("Fish/Exclamation");
 			talkIndicator.renderer.enabled = false;
 		}
@@ -36,7 +37,7 @@ namespace SpaceJam
 			//grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
 
 			// Cannot receive inputs if we are talking to someone
-			if (!dialogueEngine.IsTalking())
+			if (!dialogueEngine || !dialogueEngine.IsTalking())
 			{
 				if (leave_as_false && Input.GetAxis ("Horizontal") < 0)
 					horiz = 0;

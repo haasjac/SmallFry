@@ -7,7 +7,7 @@ public class background_shift : MonoBehaviour {
 	
 	void Update() {
 		Vector3 pos = transform.position;
-		if (Input.GetAxis ("Horizontal") > 0)
+		if (Input.GetAxis ("Horizontal") > 0 && !Input.GetButton("Hide"))
 			pos.x += speed * -Input.GetAxis ("Horizontal");
 		transform.position = pos;
 	}
