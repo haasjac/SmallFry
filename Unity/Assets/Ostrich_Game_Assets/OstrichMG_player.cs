@@ -17,7 +17,7 @@ namespace SpaceJam
 		private float wait_time;
 		public static bool move_enable;
 		public int hp;
-		private Text scoreText;
+		private static Text scoreText;
 		//private Transform groundCheck;
 			
 		// Use this for initialization
@@ -49,7 +49,6 @@ namespace SpaceJam
 		if (Input.GetAxis ("Vertical") < 0) {	
 						player_is_safe = true;
 						Accelerate = 0;
-						print ("CROUCHING");
 						//ANIMATION running -> Hiding
 				} 
 		else player_is_safe = false;
