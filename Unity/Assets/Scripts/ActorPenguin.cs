@@ -5,6 +5,8 @@ namespace SpaceJam
 {
 	public class ActorPenguin : Actor
 	{
+		public AudioClip clip;
+
 		enum PenguinState {
 			INTRO_1,
 			INTRO_2,
@@ -32,7 +34,7 @@ namespace SpaceJam
 		// Update is called once per frame
 		void Update()
 		{
-		
+
 		}
 
 		public override string GetName()
@@ -52,6 +54,8 @@ namespace SpaceJam
 			if (!GlobalState.instance.talkedToPenguin) {
 				switch (state) {
 				case PenguinState.INTRO_2:
+					AudioSource.PlayClipAtPoint(clip, new Vector3(0,0,0));
+
 					state = PenguinState.INTRO_3;
 					line = "You do know you need water to survive, don't you? You're lucky I found you here, and had a spare undiving helmet.";
 					break;

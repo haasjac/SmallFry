@@ -28,6 +28,11 @@ namespace SpaceJam
 				dialogueEngine = GameObject.Find("/Canvas/DialoguePanel").GetComponent<DialogueBehavior>();
 			talkIndicator = GameObject.Find("Fish/Exclamation");
 			talkIndicator.renderer.enabled = false;
+
+			if (Application.loadedLevelName.Equals ("Beach_Penguin") && !GlobalState.instance.talkedToPenguin) {
+				interactor = GameObject.Find("Penguin");
+				dialogueEngine.Talk(interactor.GetComponent<Actor>());
+			}
 		}
 		
 		// Update is called once per frame 
@@ -73,6 +78,12 @@ namespace SpaceJam
 					if (npc) {
 						// Turn on the idle animation
 						animator.SetInteger ("Fish_anim", 0);
+
+						// Special case for the seagull game
+						if (Application.loadedLevelName.Equals("Seagull_Game")) {
+							GlobalState.instance.seagullGameComplete = true;
+						}
+
 						dialogueEngine.Talk(npc);
 					}
 				}
