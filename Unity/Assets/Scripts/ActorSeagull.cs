@@ -5,6 +5,8 @@ namespace SpaceJam
 {
 	public class ActorSeagull : Actor
 	{
+		public AudioClip clip;
+
 		enum SeagullState {
 			IDLE,
 			DIALOG_1,
@@ -26,12 +28,21 @@ namespace SpaceJam
 		void Start()
 		{
 			state = SeagullState.IDLE;
+			if (Application.loadedLevelName.Equals("Seagull_Game")) {
+				gameObject.tag = "Untagged";
+			}
 		}
 		
 		// Update is called once per frame
 		void Update()
 		{
-		
+			if (Application.loadedLevelName.Equals("Seagull_Game")) {
+				if (GlobalState.instance.fishingRodGet) {
+					gameObject.tag = "Interactable";
+				} else {
+					gameObject.tag = "Untagged";
+				}
+			}
 		}
 
 		public override string GetName()
@@ -52,6 +63,7 @@ namespace SpaceJam
 				switch (state) {
 				case SeagullState.IDLE:
 					state = SeagullState.DIALOG_1;
+					AudioSource.PlayClipAtPoint(clip, new Vector3(0,0,0));
 					line = "Fufufufu... What have we here?";
 					break;
 				case SeagullState.DIALOG_1:
@@ -95,17 +107,14 @@ namespace SpaceJam
 						line = "And now, I think it's time to catch ourselves some delicious, nutritious...";
 						break;
 					case SeagullState.AFTER_MG_2:
-						state = SeagullState.AFTER_MG_3;
-						line = "Sea cucumbers! Oh, how I do love sea cucumbers!";
-						break;
-					case SeagullState.AFTER_MG_3:
 						state = SeagullState.CLOSE;
-						line = "Thank you again for your assistance!";
+						line = "Sea cucumbers! Oh, how I do love sea cucumbers!";
 						break;
 					case SeagullState.CLOSE:
 						state = SeagullState.AFTER_MG_IDLE;
 						line = null;
 						GlobalState.instance.talkedToSeagull = true;
+						Application.LoadLevel("Beach_Seagull");
 						break;
 					default:
 						state = SeagullState.AFTER_MG_1;

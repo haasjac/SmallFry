@@ -239,6 +239,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11491768, guid: 796a7e57dbd9281458d124b2f6c6e129, type: 2}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 64909145999dc7e4ebe0f4fc61fa202b, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 796a7e57dbd9281458d124b2f6c6e129, type: 2}
   m_RootGameObject: {fileID: 1588919057}
@@ -1200,6 +1204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a488e0e050759242a6a1e46cfb87126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 64909145999dc7e4ebe0f4fc61fa202b, type: 3}
 --- !u!61 &1588919062
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1478,7 +1483,6 @@ MonoBehaviour:
   jumpForce: 600
   interactRange: 1
   leave_as_false: 0
-  horiz: 0
 --- !u!212 &1885199949
 SpriteRenderer:
   m_ObjectHideFlags: 0
