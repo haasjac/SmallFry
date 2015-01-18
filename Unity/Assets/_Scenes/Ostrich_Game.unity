@@ -1820,7 +1820,6 @@ MonoBehaviour:
   speed: 0
   jumpForce: 0
   Accelerate: 0
-  Wait_time: 1
   hp: 1
 --- !u!61 &1126454799
 BoxCollider2D:
@@ -2424,6 +2423,7 @@ GameObject:
   - 92: {fileID: 1731672238}
   - 124: {fileID: 1731672237}
   - 81: {fileID: 1731672236}
+  - 114: {fileID: 1731672241}
   m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2496,6 +2496,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1126454792}
   m_RootOrder: 1
+--- !u!114 &1731672241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1731672235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db6893be2e50f945a0ddb32c7ca83cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Track: {fileID: 8300000, guid: 948626f91f383424bb334f69f9911cb1, type: 3}
 --- !u!1 &1991625321
 GameObject:
   m_ObjectHideFlags: 0
