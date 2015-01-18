@@ -14,9 +14,9 @@ public class Sgt_controller : MonoBehaviour {
 			//Vector3 pos = 
 				}
 
-			if ( (transform.position.x - OstrichMG_player.playersPOS)  < 1) {
+			/*if ( (transform.position.x - OstrichMG_player.playersPOS)  < 1) {
 				Vector3 pos = transform.position;
-				pos.x +=  2 * speed;
+				pos.x +=  2f * speed;
 				transform.position = pos;
 			} 
 			
@@ -24,7 +24,7 @@ public class Sgt_controller : MonoBehaviour {
 				Vector3 pos = transform.position;
 				pos.x += 0.5f * speed;
 				transform.position = pos;	
-			}
+			}*/
 			
 		}
 }

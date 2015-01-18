@@ -9,7 +9,7 @@ namespace SpaceJam
 		public float jumpForce;
 		public float interactRange = 1.0f;
 		public bool leave_as_false = false;
-		public float horiz = 0;
+		private float horiz = 0;
 
 		private bool grounded;
 		private bool jump;

@@ -51,6 +51,7 @@ public class EndGameController : MonoBehaviour {
 		void OnTriggerEnter2D(Collider2D coll) {
 			if (coll.gameObject.tag == "Player") 
 			{
+				OstrichMG_controller.start = false;
 				print("PLAYER");
 				scoreText.text = "Congratulations! Press X to continue";
 				Time.timeScale = 0;
