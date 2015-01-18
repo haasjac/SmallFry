@@ -1086,6 +1086,7 @@ GameObject:
   - 4: {fileID: 1312118110}
   - 212: {fileID: 1312118109}
   - 114: {fileID: 1312118111}
+  - 95: {fileID: 1312118112}
   m_Layer: 0
   m_Name: WhaleKing
   m_TagString: Untagged
@@ -1139,6 +1140,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: ec4a1815eb4b1ad4ba25b0c5636e7bdf, type: 3}
+--- !u!95 &1312118112
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1312118106}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 72e73d1813e42154cb118eb6da1c0bf0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1507335567
 GameObject:
   m_ObjectHideFlags: 0
