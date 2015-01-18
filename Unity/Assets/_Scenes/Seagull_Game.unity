@@ -736,7 +736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: .431372553}
+  m_Color: {r: 1, g: 1, b: 1, a: .678431392}
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
@@ -1505,6 +1505,7 @@ GameObject:
   - 4: {fileID: 1070540903}
   - 212: {fileID: 1070540902}
   - 61: {fileID: 1070540901}
+  - 114: {fileID: 1070540904}
   m_Layer: 0
   m_Name: Fishing Pole
   m_TagString: Pole
@@ -1520,7 +1521,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1070540900}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: .639999986, y: .639999986}
   m_Center: {x: 0, y: 0}
 --- !u!212 &1070540902
@@ -1557,6 +1558,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 17
+--- !u!114 &1070540904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1070540900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc1a9b4715a64c944a0cce0830209296, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 1
+  distance: 30
+  bump: .00499999989
 --- !u!1001 &1083728429
 Prefab:
   m_ObjectHideFlags: 0
