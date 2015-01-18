@@ -44,10 +44,10 @@ namespace SpaceJam
 				else if (OstrichMG_controller.start)
 					horiz = Input.GetAxis ("Horizontal");
 				// Jumping
-				if (Input.GetButtonDown ("Jump") && grounded) {
+				/*if (Input.GetButtonDown ("Jump") && grounded) {
 						jump = true;
 						grounded = false;
-				}
+				}*/
 
 				// Crouching
 				if (Input.GetButton ("Hide") && grounded) {

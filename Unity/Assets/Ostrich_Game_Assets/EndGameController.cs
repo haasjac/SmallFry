@@ -26,19 +26,14 @@ public class EndGameController : MonoBehaviour {
 				if (wincon){
 				if (Input.GetButtonDown("X_button"))
 				{
-						Time.timeScale = 1;
+						//Time.timeScale = 1;
 					Application.LoadLevel(lvl_name);
 				}}
 				else{
 					if (Input.GetButtonDown("X_button"))
 					{
-						Time.timeScale = 1;
+						//Time.timeScale = 1;
 						Application.LoadLevel(lvl_name_fail);
-					}
-					if (Input.GetButtonDown("X_button"))
-					{
-						Time.timeScale = 1;
-						Application.LoadLevel(lvl_name);
 					}
 
 				}
@@ -52,18 +47,19 @@ public class EndGameController : MonoBehaviour {
 			if (coll.gameObject.tag == "Player") 
 			{
 				OstrichMG_controller.start = false;
+				OstrichMG_controller.lose = true;
 				print("PLAYER");
 				scoreText.text = "Congratulations! Press X to continue";
-				Time.timeScale = 0;
+				//Time.timeScale = 0;
 				wincon = true;	
 				gamend = true;
-			}
-			if (coll.gameObject.tag == "AI") 
+			} else 
 			{
 				OstrichMG_controller.start = false;
+				OstrichMG_controller.lose = true;
 				print ("OSTRICH");
-				scoreText.text = "Try again? Press X to try again or B to go back";
-				Time.timeScale = 0;
+				scoreText.text = "Try again? Press X";
+				//Time.timeScale = 0;
 				wincon = false;
 				gamend = true;
 			}

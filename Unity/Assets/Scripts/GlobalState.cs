@@ -58,7 +58,10 @@ namespace SpaceJam
 			seagullGameComplete = false;
 			talkedToSeagull = false;
 			talkedToPenguin = false;
+			talkedToWhale = false;
 			staircaseUnlocked = false;
+			fishingRodGet = false;
+			exitSide = ScreenSide.NONE;
 		}
 	}
 }
