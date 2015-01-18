@@ -20,7 +20,7 @@ public class OstrichMG_controller : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		scoreText.text = "Time: " + countdown;
+		scoreText.text = "Time until hiding: " + countdown;
 		countdown -= Time.deltaTime;
 		//print (countdown);
 		OstrichMG_controller.crouch_time = false;
