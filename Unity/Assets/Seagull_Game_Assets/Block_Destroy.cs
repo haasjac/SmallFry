@@ -20,7 +20,7 @@ public class Block_Destroy : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.gameObject.tag == "Player") {
-						print ("WatchOUT!");
+						//print ("WatchOUT!");
 						timer_flag = true;
 				}
 	}
