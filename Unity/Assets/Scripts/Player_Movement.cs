@@ -80,6 +80,8 @@ namespace SpaceJam
 					// If the object is an Actor, talk to it
 					Actor npc = interactor.GetComponent<Actor>();
 					if (npc) {
+						// Turn on the idle animation
+						animator.SetInteger ("Fish_anim", 0);
 						dialogueEngine.Talk(npc);
 					}
 				}

@@ -17,28 +17,25 @@ public class Peacock_Game : MonoBehaviour {
 	private bool start = false;
 	private bool go = false;
 	private float go_time = 4f;
-	Scrollbar bar;
+	Image bar;
 
 	// Use this for initialization
 	void Start () {
 		button = Mathf.FloorToInt(Random.Range (1, 4.99F));
 		buttonText = GameObject.Find("/Canvas/ButtonText").GetComponent<Text>();
-		buttonText.text = "Press X";
+		buttonText.text = "";
 		buttonText.color = Color.black;
 		scoreText = GameObject.Find("/Canvas/ScoreText").GetComponent<Text>();
 		scoreText.text = "";
 		scoreText.color = Color.black;
-		bar = GameObject.Find("/Canvas/BAR").GetComponent<Scrollbar>();
+		bar = GameObject.Find("ProgBar/Fill").GetComponent<Image>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (mash < 100)
-			bar.value = mash / 100f;
-		else 
-			bar.value = 1f;
-		scoreText.text = "Time: " + Mathf.CeilToInt(Time_of_Game - game_time) + "\r\n Score: " + mash;
+		// TODO: Change from Interact to X_button
 		if (Input.GetButtonDown ("Interact") && start == false) {
+			GameObject.Find ("Explanation Panel").GetComponent<CanvasGroup>().alpha = 0.0f;
 			start = true;
 		}
 
@@ -108,10 +105,25 @@ public class Peacock_Game : MonoBehaviour {
 			else 
 				buttonText.color = Color.black;
 
+			if (mash < 100) {
+				bar.fillAmount = mash / 100f;
+				if (mash < 25)
+					bar.color = Color.magenta;
+				else if (mash < 50)
+					bar.color = Color.red;
+				else if (mash < 75)
+					bar.color = Color.yellow;
+				else
+					bar.color = Color.green;
+			} else {
+				bar.fillAmount = 1f;
+				bar.color = Color.green;
+			}
+			scoreText.text = "Time: " + Mathf.CeilToInt(Time_of_Game - game_time) + "\r\n Score: " + mash;
 		} else if (go) {
 			buttonText.color = Color.black;
 			if (mash > 100)
-				buttonText.text = "Yippie kay ay motherfucker";
+				buttonText.text = "Yippie kay ay";
 			else if (mash > 75)
 				buttonText.text = "Yee haw";
 			else if (mash > 50)
@@ -119,9 +131,9 @@ public class Peacock_Game : MonoBehaviour {
 			else if (mash > 25)
 				buttonText.text = "meh";
 			else 
-				buttonText.text = "You fucking suck";
+				buttonText.text = "You suck";
 
-			buttonText.text += "\r\nPress X to try again\r\nPress A to continue";
+			buttonText.text += "\r\nPress X to try again\r\nPress A to leave";
 			cooldown += Time.deltaTime;
 			if (cooldown > 1f) {
 				if (Input.GetButtonDown ("X_button")) {

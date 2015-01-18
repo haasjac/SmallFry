@@ -137,6 +137,7 @@ namespace SpaceJam
 		// Makes the dialogue box appear if it is not already showing
 		void OpenBox()
 		{
+			glubObj.text = RandomGlub();
 			boxState = BoxState.OPENING;
 		}
 
@@ -169,12 +170,13 @@ namespace SpaceJam
 					// Get the next line of dialogue
 					textObj.text = "";
 					index = 0;
-					glubObj.text = RandomGlub();
 					dialogueLine = actor.GetNextLine();
-					if (dialogueLine != null)
+					if (dialogueLine != null) {
+						glubObj.text = RandomGlub();
 						textState = TextState.WRITING;
-					else
+					} else {
 						CloseBox();
+					}
 					break;
 				case TextState.WRITING:
 					// Finish writing the dialogue line to screen
