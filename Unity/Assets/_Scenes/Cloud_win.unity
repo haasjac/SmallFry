@@ -206,6 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeSpeed: 1.5
   lvl_name: Beach_Penguin
+  rightSide: 0
 --- !u!1 &839697292
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,6 +778,7 @@ GameObject:
   - 92: {fileID: 2066284686}
   - 124: {fileID: 2066284685}
   - 81: {fileID: 2066284684}
+  - 114: {fileID: 2066284689}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -849,3 +851,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &2066284689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2066284683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db6893be2e50f945a0ddb32c7ca83cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Track: {fileID: 8300000, guid: aa4ec6d3dd31c0a47a0a2fed9ae7bd51, type: 3}
