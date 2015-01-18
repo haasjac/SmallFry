@@ -462,6 +462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeSpeed: 1.5
   lvl_name: Garden
+  rightSide: 0
 --- !u!1 &529153761
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,6 +652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeSpeed: 1.5
   lvl_name: Desert
+  rightSide: 1
 --- !u!1 &649803553
 GameObject:
   m_ObjectHideFlags: 0

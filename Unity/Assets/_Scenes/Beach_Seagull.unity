@@ -156,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeSpeed: 1.5
   lvl_name: Garden
+  rightSide: 1
 --- !u!1001 &228901369
 Prefab:
   m_ObjectHideFlags: 0
@@ -443,7 +444,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Sprite: {fileID: 0}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -580,7 +581,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 32
     m_Alignment: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -816,6 +817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeSpeed: 1.5
   lvl_name: Desert
+  rightSide: 0
 --- !u!1 &679863349
 GameObject:
   m_ObjectHideFlags: 0
@@ -1482,7 +1484,6 @@ MonoBehaviour:
   speed: .200000003
   jumpForce: 600
   interactRange: 1
-  leave_as_false: 0
 --- !u!212 &1885199949
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1594,7 +1595,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Sprite: {fileID: 21300000, guid: 41b149a6ddcf3834281c7595e8bcd7f7, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1

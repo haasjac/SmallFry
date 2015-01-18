@@ -8,8 +8,9 @@ namespace SpaceJam
 		public float speed;
 		public float jumpForce;
 		public float interactRange = 1.0f;
-		private float horiz = 0;
+		public static bool frozen = false;
 
+		private float horiz = 0;
 		private bool grounded;
 		private bool jump;
 		private bool canInteract;
@@ -33,6 +34,8 @@ namespace SpaceJam
 				interactor = GameObject.Find("Penguin");
 				dialogueEngine.Talk(interactor.GetComponent<Actor>());
 			}
+
+			// TODO: Spawn on the correct side based on GlobalState.instance.enterSide
 		}
 		
 		// Update is called once per frame 
@@ -41,7 +44,7 @@ namespace SpaceJam
 			//grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
 
 			// Cannot receive inputs if we are talking to someone
-			if (!dialogueEngine || !dialogueEngine.IsTalking())
+			if (!frozen && (!dialogueEngine || !dialogueEngine.IsTalking()))
 			{
 				horiz = Input.GetAxis ("Horizontal");
 				// Jumping
