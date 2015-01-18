@@ -46,7 +46,6 @@ namespace SpaceJam
 		// Preserve the entire dialogue system between scenes
 		void Awake()
 		{
-			DontDestroyOnLoad (transform.gameObject);
 			cooldownTimer = 0.0f;
 			dialogueLine = "";
 			index = 0;
@@ -171,6 +170,14 @@ namespace SpaceJam
 					// Get the next line of dialogue
 					textObj.text = "";
 					index = 0;
+					actorNameObj.text = actor.GetName();
+					if (actor.GetIcon()) {
+						imageObj.sprite = actor.GetIcon();
+					} else {
+						// Default white icon
+						imageObj.sprite = Sprite.Create(Texture2D.whiteTexture, new Rect(0, 0, 64, 64), new Vector2(0f, 0f));
+						Debug.Log ("Dialogue Engine failed to load a sprite from actor " + actor.GetName());
+					}
 					dialogueLine = actor.GetNextLine();
 					if (dialogueLine != null) {
 						glubObj.text = RandomGlub();
