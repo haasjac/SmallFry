@@ -52,19 +52,19 @@ namespace SpaceJam
 		
 		public override Sprite GetIcon()
 		{
-			Sprite icon = Resources.Load<Sprite>("Sprites/cumberbatch");
+			Sprite icon = Resources.Load<Sprite>("Sprites/ostrich");
 
 			switch(state)
 			{
 			case OstrichState.IDLE:
 			case OstrichState.DIALOG_2:
-				icon = Resources.Load<Sprite>("Sprites/cumberbatch");
+				icon = Resources.Load<Sprite>("Sprites/question");
 				break;
 			case OstrichState.DIALOG_1:
-				icon = Resources.Load<Sprite>("Sprites/cumberbatch");
+				icon = Resources.Load<Sprite>("Sprites/ostrich");
 				break;
 			case OstrichState.DIALOG_3:
-				icon = Resources.Load<Sprite>("Sprites/cumberbatch");
+				icon = Resources.Load<Sprite>("Sprites/hummingbird");
 				break;
 			}
 
