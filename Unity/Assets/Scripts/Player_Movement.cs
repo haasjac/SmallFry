@@ -57,6 +57,11 @@ namespace SpaceJam
 				if (Input.GetButton ("Hide") && grounded && (GlobalState.instance.ostrichGameComplete || Application.loadedLevelName.Equals("Ostrich_Game"))) {
 					animator.SetInteger ("Fish_anim", 2);
 				// Walking
+				} else if (!grounded) {
+					animator.SetInteger ("Fish_anim", 3);
+					Vector3 pos = transform.position;
+					pos.x += speed * horiz;
+					transform.position = pos;
 				} else if (Input.GetAxis ("Horizontal") != 0) {
 					animator.SetInteger ("Fish_anim", 1);
 					Vector3 pos = transform.position;
