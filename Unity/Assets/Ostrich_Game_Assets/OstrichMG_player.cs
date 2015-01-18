@@ -12,10 +12,14 @@ namespace SpaceJam
 		public float Accelerate;
 		public static float playersPOS;
 		public static bool player_is_safe;
+		public  float Wait_time;
+		private float wait_time;
+		public static bool move_enable;
 		//private Transform groundCheck;
 			
 		// Use this for initialization
 		void Start () {
+			wait_time = 0;
 			//groundCheck = transform.Find ("groundCheck");
 		}
 		
@@ -30,13 +34,14 @@ namespace SpaceJam
 				} 
 		else player_is_safe = false;
 	
-		if (OstrichMG_controller.crouch_time && !player_is_safe) {
-			// GET REKT!!
-			Vector3 pos = transform.position;
-			pos.x = -300.0f ;
-			playersPOS = pos.x;
-			transform.position = pos;
-		}
+		if (OstrichMG_controller.crouch_time && !player_is_safe && (wait_time < 1)) {
+								// GET REKT!!
+				move_enable = true;
+						} 
+		else {
+				wait_time-= Time.deltaTime;
+			}
+
 		player_is_safe = false;
 	
 	
