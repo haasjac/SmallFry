@@ -19,7 +19,7 @@ public class OstrichMG_controller : MonoBehaviour {
 		start = false;
 		OstrichMG_controller.start = false;
 		Button = GameObject.Find ("Sgt/Button").GetComponent<SpriteRenderer>();
-		Button.renderer.enabled = false;
+		Button.GetComponent<Renderer>().enabled = false;
 		animator = this.GetComponent<Animator>();
 		win_condition = false;
 		countdown = timer;
@@ -36,9 +36,9 @@ public class OstrichMG_controller : MonoBehaviour {
 			else
 				animator.SetInteger ("anim", 0);
 			if (countdown < 0.5f) {
-				Button.renderer.enabled = true;
+				Button.GetComponent<Renderer>().enabled = true;
 			} else {
-				Button.renderer.enabled = false;
+				Button.GetComponent<Renderer>().enabled = false;
 			}
 			if (countdown < 0.1f) {
 				OstrichMG_controller.crouch_time = true;

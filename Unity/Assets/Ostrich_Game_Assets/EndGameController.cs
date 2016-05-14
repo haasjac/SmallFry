@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace SpaceJam{
 public class EndGameController : MonoBehaviour {
@@ -27,13 +28,13 @@ public class EndGameController : MonoBehaviour {
 				if (Input.GetButtonDown("X_button"))
 				{
 						//Time.timeScale = 1;
-					Application.LoadLevel(lvl_name);
+						SceneManager.LoadScene(lvl_name);
 				}}
 				else{
 					if (Input.GetButtonDown("X_button"))
 					{
 						//Time.timeScale = 1;
-						Application.LoadLevel(lvl_name_fail);
+						SceneManager.LoadScene(lvl_name_fail);
 					}
 
 				}

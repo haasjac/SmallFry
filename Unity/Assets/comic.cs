@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class comic : MonoBehaviour {
@@ -11,7 +12,7 @@ public class comic : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetButtonDown ("X_button")) {
-			Application.LoadLevel("Beach_Penguin");
+			SceneManager.LoadScene("Beach_Penguin");
 		}
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace SpaceJam
 {
@@ -111,7 +112,7 @@ namespace SpaceJam
 				case PenguinState.FINAL_END:
 					GlobalState.instance.staircaseUnlocked = true;
 					state = PenguinState.RAND_1_PREP;
-					Application.LoadLevel ("Cloud_win");
+					SceneManager.LoadScene("Cloud_win");
 					line = null;
 					break;
 				default:

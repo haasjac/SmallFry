@@ -7,12 +7,13 @@ namespace SpaceJam
 	public class TitleBehavior : MonoBehaviour
 	{
 		RectTransform title;
-		bool done = false;
-		DialogueBehavior dialogueEngine = null;
+		bool done;
+		DialogueBehavior dialogueEngine;
 
 		// Use this for initialization
 		void Start()
 		{
+			done = false;
 			title = GameObject.Find ("/Canvas/TitlePanel").GetComponent<RectTransform>();
 			dialogueEngine = GameObject.Find("/Canvas/DialoguePanel").GetComponent<DialogueBehavior>();
 			Player_Movement.frozen = true;

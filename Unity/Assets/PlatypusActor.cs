@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace SpaceJam
 {
@@ -67,7 +68,7 @@ namespace SpaceJam
 			case PlatypusState.CLOSE:
 				state = PlatypusState.DONE;
 				line = null;
-				Application.LoadLevel("you_win");
+				SceneManager.LoadScene("you_win");
 				break;
 			}
 			

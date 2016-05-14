@@ -119,7 +119,7 @@ namespace SpaceJam
 			} else {
 				// Default white icon
 				imageObj.sprite = Sprite.Create(Texture2D.whiteTexture, new Rect(0, 0, 64, 64), new Vector2(0f, 0f));
-				Debug.Log ("Dialogue Engine failed to load a sprite from actor " + actor.GetName());
+				Debug.Log("Dialogue Engine failed to load a sprite from actor " + actor.GetName());
 			}
 			dialogueLine = actor.GetNextLine();
 
@@ -200,7 +200,7 @@ namespace SpaceJam
 		// Returns a random "glub" dialogue from our available list
 		string RandomGlub()
 		{
-			return glubs [Mathf.FloorToInt(Random.value * (float)glubs.Length)];
+			return glubs[Mathf.FloorToInt(Random.value * (float)glubs.Length)];
 		}
 	}
 }

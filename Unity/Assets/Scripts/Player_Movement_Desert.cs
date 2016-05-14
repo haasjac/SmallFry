@@ -28,7 +28,7 @@ namespace SpaceJam
 			if (GameObject.Find("/Canvas/DialoguePanel"))
 				dialogueEngine = GameObject.Find("/Canvas/DialoguePanel").GetComponent<DialogueBehavior>();
 			talkIndicator = GameObject.Find("Fish/Exclamation");
-			talkIndicator.renderer.enabled = false;
+			talkIndicator.GetComponent<Renderer>().enabled = false;
 		}
 		
 		// Update is called once per frame 
@@ -94,7 +94,7 @@ namespace SpaceJam
 
 			if (jump) {
 				// Add a vertical force to the player.
-				rigidbody2D.AddForce(new Vector2(0f, jumpForce));
+				GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
 				
 				// Make sure the player can't jump again until the jump conditions from Update are satisfied.
 				jump = false;
@@ -109,7 +109,7 @@ namespace SpaceJam
 
 		void OnTriggerEnter2D(Collider2D coll) {
 			if (coll.gameObject.tag == "Interactable") {
-				talkIndicator.renderer.enabled = true;
+				talkIndicator.GetComponent<Renderer>().enabled = true;
 				canInteract = true;
 				interactor = coll.gameObject;
 			}
@@ -117,7 +117,7 @@ namespace SpaceJam
 
 		void OnTriggerExit2D(Collider2D coll) {
 			if (coll.gameObject.tag == "Interactable") {
-				talkIndicator.renderer.enabled = false;
+				talkIndicator.GetComponent<Renderer>().enabled = false;
 				canInteract = false;
 				interactor = null;
 			}

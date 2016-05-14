@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace SpaceJam
 {
@@ -75,7 +76,7 @@ namespace SpaceJam
 				case PeacockState.INTRO_DIALOG_END:
 					state = PeacockState.INTRO_DIALOG_DONE;
 					line = null;
-					Application.LoadLevel("Peacock_Game");
+					SceneManager.LoadScene("Peacock_Game");
 					break;
 				}
 			}

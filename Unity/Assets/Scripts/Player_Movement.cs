@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -11,35 +12,37 @@ namespace SpaceJam
 		public float interactRange = 1.0f;
 		public static bool frozen = false;
 
-		private float horiz = 0;
+		private float horiz;
 		private bool grounded;
 		private bool jump;
 		private bool canInteract;
 		GameObject interactor;
 		private Animator animator;
-		DialogueBehavior dialogueEngine = null;
+		DialogueBehavior dialogueEngine;
 		GameObject talkIndicator;
 		//private Transform groundCheck;
 
 		// Use this for initialization
 		void Start()
 		{
+			jump = false;
+			horiz = 0;
 			canInteract = false;
 			interactor = null;
 			animator = this.GetComponent<Animator>();
 			if (GameObject.Find("/Canvas/DialoguePanel"))
 				dialogueEngine = GameObject.Find("/Canvas/DialoguePanel").GetComponent<DialogueBehavior>();
 			talkIndicator = GameObject.Find("Fish/Exclamation");
-			talkIndicator.renderer.enabled = false;
+			talkIndicator.GetComponent<Renderer>().enabled = false;
 
-			if (Application.loadedLevelName.Equals ("Beach_Penguin") && !GlobalState.instance.talkedToPenguin) {
+			if (SceneManager.GetActiveScene().name == "Beach_Penguin" && !GlobalState.instance.talkedToPenguin) {
 				interactor = GameObject.Find("Penguin");
 				dialogueEngine.Talk(interactor.GetComponent<Actor>());
 			}
 
 			List<string> levels = new List<string>() {"Beach_Penguin", "Beach_Seagull", "Garden", "Desert"};
 
-			if (levels.Exists(x => x == Application.loadedLevelName)) {
+			if (levels.Exists(x => x == SceneManager.GetActiveScene().name)) {
 				if (GlobalState.instance.enterSide == GlobalState.ScreenSide.LEFT) {
 					Vector3 pos = transform.position;
 					pos.x  = -20;
@@ -59,9 +62,9 @@ namespace SpaceJam
 		{
 			//grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
 			if (canInteract && !dialogueEngine.IsTalking ()) {
-				talkIndicator.renderer.enabled = true;
+				talkIndicator.GetComponent<Renderer>().enabled = true;
 			} else {
-				talkIndicator.renderer.enabled = false;
+				talkIndicator.GetComponent<Renderer>().enabled = false;
 			}
 
 			// Cannot receive inputs if we are talking to someone
@@ -75,7 +78,7 @@ namespace SpaceJam
 				}
 
 				// Crouching - Can only crouch if we have beaten or are currently playing the ostrich game
-				if (Input.GetButton ("Hide") && grounded && (GlobalState.instance.ostrichGameComplete || Application.loadedLevelName.Equals("Ostrich_Game"))) {
+				if (Input.GetButton ("Hide") && grounded && (GlobalState.instance.ostrichGameComplete || SceneManager.GetActiveScene().name == "Ostrich_Game")) {
 					animator.SetInteger ("Fish_anim", 2);
 				// Walking
 				} else if (!grounded) {
@@ -123,7 +126,7 @@ namespace SpaceJam
 						animator.SetInteger ("Fish_anim", 0);
 
 						// Special case for the seagull game
-						if (Application.loadedLevelName.Equals("Seagull_Game")) {
+						if (SceneManager.GetActiveScene().name == "Seagull_Game") {
 							GlobalState.instance.seagullGameComplete = true;
 						}
 
@@ -139,7 +142,7 @@ namespace SpaceJam
 
 			if (jump) {
 				// Add a vertical force to the player.
-				rigidbody2D.AddForce(new Vector2(0f, jumpForce));
+				GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
 				
 				// Make sure the player can't jump again until the jump conditions from Update are satisfied.
 				jump = false;

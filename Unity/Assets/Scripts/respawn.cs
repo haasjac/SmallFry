@@ -22,7 +22,7 @@ namespace SpaceJam
 				transform.position = pos;
 				if (GlobalState.instance.fishingRodGet) {
 					GlobalState.instance.fishingRodGet = false;
-					poleObj.renderer.enabled = true;
+					poleObj.GetComponent<Renderer>().enabled = true;
 					poleObj.GetComponent<BoxCollider2D> ().enabled = true;
 				}
 			}
@@ -32,7 +32,7 @@ namespace SpaceJam
 			if (coll.gameObject.tag == "Pole") {
 				Debug.Log("Got pole");
 				poleObj = coll.gameObject;
-				poleObj.renderer.enabled = false;
+				poleObj.GetComponent<Renderer>().enabled = false;
 				poleObj.GetComponent<BoxCollider2D>().enabled = false;
 				GlobalState.instance.fishingRodGet = true;
 			}

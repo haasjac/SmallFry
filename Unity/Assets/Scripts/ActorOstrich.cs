@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace SpaceJam
 {
@@ -112,7 +113,7 @@ namespace SpaceJam
                 case OstrichState.DIALOG_END:
                     state = OstrichState.DIALOG_DONE;
                     line = null;
-                    Application.LoadLevel("Ostrich_Game");
+					SceneManager.LoadScene("Ostrich_Game");
                     break;
                 }
             }

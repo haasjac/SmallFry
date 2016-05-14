@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace SpaceJam
 {
@@ -79,11 +80,11 @@ namespace SpaceJam
 			
 			// Start fading towards black.
 			FadeToBlack();
-			
+
 			// If the screen is almost black...
 			//if(guiTexture.color.a >= 0.95f)
-				// ... reload the level.
-				Application.LoadLevel(lvl_name);
+			// ... reload the level.
+			SceneManager.LoadScene(lvl_name);
 		}
 	}
 }

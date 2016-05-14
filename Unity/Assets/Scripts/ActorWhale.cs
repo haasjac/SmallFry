@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace SpaceJam
 {
@@ -73,7 +74,7 @@ namespace SpaceJam
 					GlobalState.instance.talkedToWhale = true;
 					state = WhaleState.RAND_1_PREP;
 					line = null;
-				Application.LoadLevel("Comic");
+					SceneManager.LoadScene("Comic");
 					break;
 				}
 			return line;

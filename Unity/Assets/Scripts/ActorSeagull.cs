@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace SpaceJam
 {
@@ -28,7 +28,7 @@ namespace SpaceJam
 		void Start()
 		{
 			state = SeagullState.IDLE;
-			if (Application.loadedLevelName.Equals("Seagull_Game")) {
+			if (SceneManager.GetActiveScene().name == "Seagull_Game") {
 				gameObject.tag = "Untagged";
 			}
 		}
@@ -36,7 +36,7 @@ namespace SpaceJam
 		// Update is called once per frame
 		void Update()
 		{
-			if (Application.loadedLevelName.Equals("Seagull_Game")) {
+			if (SceneManager.GetActiveScene().name == "Seagull_Game") {
 				if (GlobalState.instance.fishingRodGet) {
 					gameObject.tag = "Interactable";
 				} else {
@@ -85,7 +85,7 @@ namespace SpaceJam
 				case SeagullState.DIALOG_END:
 					state = SeagullState.DIALOG_DONE;
 					line = null;
-					Application.LoadLevel ("Seagull_Game");
+					SceneManager.LoadScene("Seagull_Game");
 					break;
 				}
 			} else {
@@ -114,7 +114,7 @@ namespace SpaceJam
 						state = SeagullState.AFTER_MG_IDLE;
 						line = null;
 						GlobalState.instance.talkedToSeagull = true;
-						Application.LoadLevel("Beach_Seagull");
+						SceneManager.LoadScene("Beach_Seagull");
 						break;
 					default:
 						state = SeagullState.AFTER_MG_1;

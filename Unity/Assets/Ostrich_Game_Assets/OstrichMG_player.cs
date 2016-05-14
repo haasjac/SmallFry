@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace SpaceJam
 {
@@ -40,7 +41,7 @@ namespace SpaceJam
 				scoreText.text = "You gotta hide! Press X to restart";
 				if (Input.GetButtonDown("X_button"))
 				    {
-					Application.LoadLevel("Ostrich_Game");
+					SceneManager.LoadScene("Ostrich_Game");
 					OstrichMG_controller.lose = false;
 					}	
 		}

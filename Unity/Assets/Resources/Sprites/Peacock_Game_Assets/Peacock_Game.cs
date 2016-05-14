@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace SpaceJam {
 public class Peacock_Game : MonoBehaviour {
@@ -151,7 +152,7 @@ public class Peacock_Game : MonoBehaviour {
 					button = 0;
 				}
 				if (Input.GetButtonDown ("B_button")) {
-					Application.LoadLevel("Garden");
+					SceneManager.LoadScene("Garden");
 				}
 			}
 		}
