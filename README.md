@@ -6,7 +6,7 @@ In the game, you play as Small Fry, a fish who has been sent as an envoy by the 
 
 Our team took second place in the competition, and won an award for "Best Artwork". We also won a trophy for "Most Useless Feature", for including the ability to dance. We originally planned another mechanic involving dancing, but ran out of time to implement it. However, our artist worked so hard on the dance animations that we couldn't resist leaving them in the final product.
 
-Note that this game was designed to be used with an Xbox controller. Due to time constraints in the competition, it is not particularly polished without one.
+The game is currently not in a playable state due to Unity updates, but feel free to look at the scenes and source code.
 
 ## Viewing the Program ##
 
