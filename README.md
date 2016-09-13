@@ -1,10 +1,12 @@
 # Small Fry's Big Adventure #
 
-This game was built in Unity for a 48-hour Game Jam at the University of Michigan. The theme for this game jam was randomly selected for each team at the start of the competition. As a result, this game was developed from conception to completion in 48 hours.
+*Small Fry's Big Adventure* is a game developed in Unity for a 48-hour game jam at the University of Michigan. The theme for this jam was randomly selected for each team at the start of the jam, using the [Video Game Name Generator](https://videogamena.me/). Our team's theme was "Peaceful Whale King".
 
-Our team ended up taking second place in the competition, and won an award for "Best Artwork". We also won a trophy for "Most Useless Feature", for including the ability to dance with the D-pad. We originally planned another mechanic involving dancing but ran out of time to implement it. However, our artist worked so hard on the dance animations that we couldn't resist leaving them in the final product.
+In the game, you play as Small Fry, a fish who has been sent as an envoy by the Whale King to the bird kingdom on land. The player must help different types of birds in a series of minigames before finally being able to visit their master.
 
-Note that this game was designed to be used with an Xbox controller, and we recommend using one if you plan on playing.
+Our team took second place in the competition, and won an award for "Best Artwork". We also won a trophy for "Most Useless Feature", for including the ability to dance. We originally planned another mechanic involving dancing, but ran out of time to implement it. However, our artist worked so hard on the dance animations that we couldn't resist leaving them in the final product.
+
+Note that this game was designed to be used with an Xbox controller. Due to time constraints in the competition, it is not particularly polished without one.
 
 ## Viewing the Program ##
 
